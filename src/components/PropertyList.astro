@@ -1,0 +1,92 @@
+---
+
+import type {The0} from '../api/[id_property].json'
+
+const { properties } = Astro.props;
+---
+
+
+<div class="property-grid">
+  {properties.map((property: The0) => (
+    <div class="property-card">
+      <img src={property.main_image.url_original} alt="" class="property-image" />
+      <h2>{property.title}</h2>
+      <p>{property.address}</p>
+      <p>Precio de venta: {property.sale_price_label}</p>
+      <p>Precio de renta: {property.rent_price_label}</p>
+      <p>Habitaciones: {property.bedrooms}</p>
+      <p>Baños: {property.bathrooms}</p>
+      <p>Área: {property.area} m²</p>
+      <!-- Botón para ver más detalles -->
+      <a href={`/property/${property.id_property}`} class="detail-button">Ver detalles</a>
+
+    </div>
+  ))}
+</div>
+<style>
+ .property-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    gap: 16px; /* Espacio entre las columnas */
+    margin-top: 20px;
+  }
+
+  .property-card {
+    border: 1px solid #ddd;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .property-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor */
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  .property-card h2 {
+    font-size: 1.2rem;
+    margin: 0 0 8px 0;
+  }
+
+  .property-card p {
+    margin: 4px 0;
+    color: #555;
+  }
+
+  .detail-button {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .detail-button:hover {
+    background-color: #0056b3;
+  }
+
+  @media (max-width: 768px) {
+    .property-grid {
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas pequeñas */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .property-grid {
+      grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
+    }
+  }
+</style>

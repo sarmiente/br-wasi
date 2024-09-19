@@ -1,0 +1,80 @@
+---
+
+// Importa el tipo de la propiedad
+import type { The0 } from '../../api/[id_property].json';
+
+// Generación de rutas dinámicas para cada propiedad
+export async function getStaticPaths() {
+
+  const urlSearch = "https://api.wasi.co/v1/property/search?";
+
+  const res = await fetch(`${urlSearch}id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}`);
+
+  const data = await res.json();
+
+  const properties = Object.keys(data)
+    .filter(key => key !== 'total' && key !== 'status')
+    .map(key => data[key]);
+
+  return {
+    paths: properties.map((property: { id_property: string }) => ({
+      params: { id_property: property.id_property.toString() },
+    })),
+    fallback: 'blocking', // Permite la generación dinámica si la ruta no está pre-generada
+  };
+}
+
+// Dentro de la página, obtenemos la propiedad dinámicamente
+const { id_property } = Astro.params;
+
+let property: The0 | null = null;
+
+try {
+
+  const res = await fetch(`https://api.wasi.co/v1/property/get/${id_property}?id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}`);
+
+  const data = await res.json();
+
+  property = data.data;
+
+  console.log(property?.address);
+  
+  
+} catch (error) {
+
+  console.error('Error fetching property:', error);
+  
+}
+
+
+---
+
+{property ? (
+  <div class="property-detail">
+    <img src={property.main_image.url_original} alt="Imagen de la propiedad" class="property-image" />
+    <h1>{property.title}</h1>
+    <p><strong>Dirección:</strong> {property.address}</p>
+    <p><strong>Precio de venta:</strong> {property.sale_price_label}</p>
+    <p><strong>Precio de renta:</strong> {property.rent_price_label}</p>
+    <p><strong>Habitaciones:</strong> {property.bedrooms}</p>
+    <p><strong>Baños:</strong> {property.bathrooms}</p>
+    <p><strong>Área:</strong> {property.area} m²</p>
+    <p><strong>Descripción:</strong> {property.comment}</p>
+  </div>
+) : (
+  <p>Propiedad no encontrada o error cargando los detalles.</p>
+)}
+
+<style>
+  .property-detail {
+    border: 1px solid #ddd;
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  .property-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+</style>
