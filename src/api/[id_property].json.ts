@@ -358,4 +358,3 @@ export interface The2_Gallery {
     id:    number;
    }
 
-export const prerender = true;

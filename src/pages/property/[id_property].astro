@@ -1,80 +1,98 @@
 ---
+// @ts-nocheck
+const options = {
+  method: 'POST',
+  headers: {
+    "Content-Type": "application/json; charset=UTF-8",
+    Authentication: `Bearer ${import.meta.env.ID_COMPANY}`,
+  }
+};
 
-// Importa el tipo de la propiedad
-import type { The0 } from '../../api/[id_property].json';
+const urlGetProperty = "https://api.wasi.co/v1/property/get/";
+let property = null;
 
-// Generación de rutas dinámicas para cada propiedad
-export async function getStaticPaths() {
+async function fetchProperty(params) {
+  const propertyId = params.id_property;
 
-  const urlSearch = "https://api.wasi.co/v1/property/search?";
-
-  const res = await fetch(`${urlSearch}id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}`);
-
-  const data = await res.json();
-
-  const properties = Object.keys(data)
-    .filter(key => key !== 'total' && key !== 'status')
-    .map(key => data[key]);
-
-  return {
-    paths: properties.map((property: { id_property: string }) => ({
-      params: { id_property: property.id_property.toString() },
-    })),
-    fallback: 'blocking', // Permite la generación dinámica si la ruta no está pre-generada
-  };
+  try {
+    const response = await fetch(`${urlGetProperty}${propertyId}?id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}`, options);
+    property = await response.json();
+  } catch (error) {
+    console.error('Error fetching property:', error);
+  }
 }
 
-// Dentro de la página, obtenemos la propiedad dinámicamente
-const { id_property } = Astro.params;
-
-let property: The0 | null = null;
-
-try {
-
-  const res = await fetch(`https://api.wasi.co/v1/property/get/${id_property}?id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}`);
-
-  const data = await res.json();
-
-  property = data.data;
-
-  console.log(property?.address);
-  
-  
-} catch (error) {
-
-  console.error('Error fetching property:', error);
-  
-}
-
-
+// Llamar a la función con los parámetros disponibles
+await fetchProperty(Astro.params);
 ---
 
-{property ? (
-  <div class="property-detail">
-    <img src={property.main_image.url_original} alt="Imagen de la propiedad" class="property-image" />
-    <h1>{property.title}</h1>
-    <p><strong>Dirección:</strong> {property.address}</p>
-    <p><strong>Precio de venta:</strong> {property.sale_price_label}</p>
-    <p><strong>Precio de renta:</strong> {property.rent_price_label}</p>
-    <p><strong>Habitaciones:</strong> {property.bedrooms}</p>
-    <p><strong>Baños:</strong> {property.bathrooms}</p>
-    <p><strong>Área:</strong> {property.area} m²</p>
-    <p><strong>Descripción:</strong> {property.comment}</p>
-  </div>
-) : (
-  <p>Propiedad no encontrada o error cargando los detalles.</p>
-)}
+<div class="property-container">
+  {property ? (
+    <div>
+      <div class="property-header">
+        <h2>{property.title}</h2>
+      </div>
+      <div class="property-details">
+        <p><strong>Dirección:</strong> {property.address}</p>
+        <p><strong>Precio de venta:</strong> {property.sale_price}</p>
+        <p><strong>Ciudad:</strong> {property.city_label}</p>
+        <p><strong>Área construida:</strong> {property.built_area} m²</p>
+      </div>
+      <div class="property-image">
+        <img src={property.main_image.url} alt={property.title} />
+      </div>
+    </div>
+  ) : (
+    <p>Cargando datos de la propiedad...</p>
+  )}
+</div>
 
 <style>
-  .property-detail {
-    border: 1px solid #ddd;
-    padding: 20px;
+   .property-container {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  .property-image {
-    width: 100%;
-    height: auto;
+  
+  .property-header {
+    text-align: center;
     margin-bottom: 20px;
   }
+
+  .property-header h2 {
+    font-size: 24px;
+    color: #333;
+  }
+
+  .property-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .property-details p {
+    font-size: 16px;
+    color: #555;
+  }
+
+  .property-image {
+    grid-column: span 2;
+    text-align: center;
+  }
+
+  .property-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+
+  @media (max-width: 600px) {
+    .property-details {
+      grid-template-columns: 1fr;
+    }
+  }
+
 </style>
