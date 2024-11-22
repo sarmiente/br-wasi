@@ -1,92 +1,116 @@
 ---
+// Importaciones necesarias
+import type { The0 } from "../api/[id_property].json";
+import { Icon } from "astro-icon/components";
 
-import type {The0} from '../api/[id_property].json'
+const urlSearch = "https://api.wasi.co/v1/property/search?";
 
-const { properties } = Astro.props;
+const res = await fetch(`${urlSearch}id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}&take=9&for_sale=true&order_by=title`, {
+  method: "POST",
+    headers: {
+      "Content-Type": "application/json; charset=UTF-8",
+      Authentication: `Bearer ${import.meta.env.ID_COMPANY}`,
+    }
+});
+
+const data = await res.json();
+
+const properties = Object.keys(data)
+  .filter(key => key !== 'total' && key !== 'status')
+  .map(key => data[key]);
+  
+console.log(Object.keys(data));
+
+
 ---
 
+<section id="properties" class="py-12">
+  <!-- Título del portafolio -->
+  <h2 class="text-center text-xl md:text-3xl font-heading uppercase pt-10 pb-10">
+    Explore our Portfolio
+  </h2>
 
-<div class="property-grid">
-  {properties.map((property: The0) => (
-    <div class="property-card">
-      <img src={property.main_image.url_original} alt="" class="property-image" />
-      <h2>{property.title}</h2>
-      <p>{property.address}</p>
-      <p>Precio de venta: {property.sale_price_label}</p>
-      <p>Precio de renta: {property.rent_price_label}</p>
-      <p>Habitaciones: {property.bedrooms}</p>
-      <p>Baños: {property.bathrooms}</p>
-      <p>Área: {property.area} m²</p>
-      <!-- Botón para ver más detalles -->
-      <a href={`/property/${property.id_property}`} class="detail-button">Ver detalles</a>
+  <!-- Campo de búsqueda -->
+  <div class="mx-auto w-full text-center mb-8">
+    <input
+      class="search w-3/4 md:w-1/2 border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring focus:ring-green-500"
+      placeholder="Search by Title"
+    />
+  </div>
 
-    </div>
-  ))}
-</div>
-<style>
- .property-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
-    gap: 16px; /* Espacio entre las columnas */
-    margin-top: 20px;
-  }
+  <!-- Contenedor de propiedades -->
+  <div class="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3 p-5 md:p-10 list">
+    <!-- Cada propiedad -->
+    {properties.map((property: The0) => (
+      <div class="item">
+        <a
+          href={`/property/${property.id_property}`}
+          class="block rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl"
+        >
+          <!-- Imagen de la propiedad -->
+          <img
+            alt="Property Image"
+            src={property.main_image.url_original}
+            class="h-56 w-full object-cover"
+          />
 
-  .property-card {
-    border: 1px solid #ddd;
-    padding: 16px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+          <!-- Etiqueta de ubicación -->
+          <div class="absolute top-2 right-2 bg-black bg-opacity-50 w-auto p-2 text-white">
+            <p class="text-sm flex font-display">{property.city_label}</p>
+          </div>
 
-  .property-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  }
+          <!-- Detalles de la propiedad -->
+          <div class="p-4 bg-white">
+            <!-- Título -->
+            <h2 class="titulo text-md font-display text-gray-800 mb-1 uppercase">
+              {property.title}
+            </h2>
 
-  .property-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor */
-    border-radius: 4px;
-    margin-bottom: 12px;
-  }
+            <!-- Precio -->
+            <p class="text-sm text-gray-500 mb-4 font-pattern">
+              {property.sale_price_label}
+            </p>
 
-  .property-card h2 {
-    font-size: 1.2rem;
-    margin: 0 0 8px 0;
-  }
+            <!-- Características -->
+            <div class="mt-4 grid grid-cols-3 gap-4 text-xs">
+              <!-- Área -->
+              <div class="flex flex-col items-center">
+                <Icon name="ruler" class="text-[#60C11C] text-lg md:text-xl" />
+                <p class="text-gray-500 mt-1 font-display">Área</p>
+                <p class="font-medium font-pattern">{property.built_area} m²</p>
+              </div>
 
-  .property-card p {
-    margin: 4px 0;
-    color: #555;
-  }
+              <!-- Baños -->
+              <div class="flex flex-col items-center">
+                <Icon name="door" class="text-[#60C11C] text-lg md:text-xl" />
+                <p class="text-gray-500 mt-1 font-display">Baños</p>
+                <p class="font-medium font-pattern">{property.bathrooms}</p>
+              </div>
 
-  .detail-button {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
+              <!-- Habitaciones -->
+              <div class="flex flex-col items-center">
+                <Icon name="bed" class="text-[#60C11C] text-lg md:text-xl" />
+                <p class="text-gray-500 mt-1 font-display">Habitaciones</p>
+                <p class="font-medium font-pattern">{property.bedrooms}</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    ))}
+  </div>
+</section>
 
-  .detail-button:hover {
-    background-color: #0056b3;
-  }
+<!-- Script para habilitar List.js -->
+<script is:inline src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+<script is:inline>
+  // Configuración de List.js
+  var options = {
+    valueNames: ['titulo'], // Clases a buscar
+    listClass: 'list', // Clase que contiene los elementos
+    searchClass: 'search' // Clase del input de búsqueda
+  };
 
-  @media (max-width: 768px) {
-    .property-grid {
-      grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas pequeñas */
-    }
-  }
-
-  @media (max-width: 480px) {
-    .property-grid {
-      grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
-    }
-  }
-</style>
+  // Inicialización
+  var listProperties = new List('properties', options);
+</script>

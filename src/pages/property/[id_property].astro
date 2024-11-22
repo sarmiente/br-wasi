@@ -1,4 +1,7 @@
 ---
+import Layout from "../../layouts/Layout.astro";
+
+
 // @ts-nocheck
 const options = {
   method: 'POST',
@@ -11,7 +14,7 @@ const options = {
 const urlGetProperty = "https://api.wasi.co/v1/property/get/";
 let property = null;
 
-async function fetchProperty(params) {
+async function fetchProperty(params: Record<string, string | undefined>) {
   const propertyId = params.id_property;
 
   try {
@@ -24,75 +27,46 @@ async function fetchProperty(params) {
 
 // Llamar a la función con los parámetros disponibles
 await fetchProperty(Astro.params);
+
+// @ts-ignore
+let galleries = property.galleries;
+console.log(Object(galleries[0][1].url));
+
 ---
 
-<div class="property-container">
-  {property ? (
-    <div>
-      <div class="property-header">
-        <h2>{property.title}</h2>
-      </div>
-      <div class="property-details">
-        <p><strong>Dirección:</strong> {property.address}</p>
-        <p><strong>Precio de venta:</strong> {property.sale_price}</p>
-        <p><strong>Ciudad:</strong> {property.city_label}</p>
-        <p><strong>Área construida:</strong> {property.built_area} m²</p>
-      </div>
-      <div class="property-image">
-        <img src={property.main_image.url} alt={property.title} />
-      </div>
-    </div>
-  ) : (
-    <p>Cargando datos de la propiedad...</p>
-  )}
-</div>
+<Layout title="">
 
-<style>
-   .property-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
   
-  .property-header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .property-header h2 {
-    font-size: 24px;
-    color: #333;
-  }
-
-  .property-details {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  .property-details p {
-    font-size: 16px;
-    color: #555;
-  }
-
-  .property-image {
-    grid-column: span 2;
-    text-align: center;
-  }
-
-  .property-image img {
-    max-width: 100%;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-  }
-
-  @media (max-width: 600px) {
-    .property-details {
-      grid-template-columns: 1fr;
-    }
-  }
-
-</style>
+              <section class="py-40">
+                <div class="mx-auto max-w-4xl px-6 md:px-12">
+                  <button  onclick="window.history.back()">Back
+                  </button>
+                </div>
+                {property ? (
+                  <div class="mx-auto max-w-4xl px-6 md:px-12">
+                      <div class="mt-16">
+                           {/* @ts-ignore */}                   
+                          <h1 class="text-3xl font-semibold text-zinc-950 dark:text-white font-display">{property.title}</h1>
+                          {/* @ts-ignore */}
+                          <p class="text-sm tracking-wide text-zinc-700 dark:text-zinc-300"> {property.city_label}</p>
+                      </div>
+                      {/* @ts-ignore */}
+                      <p class="mt-12 text-sm text-zinc-600 dark:text-zinc-200 sm:w-2/3 xl:w-1/2 capitalize font-body">{property.address}</p>
+                  </div>
+                  <div class="mx-auto mt-16 max-w-6xl px-1 md:px-12">
+                      <div class="grid grid-cols-3 gap-1">
+                        {/* @ts-ignore */}
+                          <img class="col-span-2 h-full w-full rounded-md object-cover" src={property.main_image.url} alt="project cover" width="2000" height="1333">
+                          {/* @ts-ignore */}
+                          <img class="col-span-1 h-full w-full rounded-md object-cover" src={property.galleries[0][2].url} alt="project cover" width="1380" height="1380">
+                      </div>
+                  </div>   
+  
+  
+  
+  
+    ) : (
+      <p>Cargando datos de la propiedad...</p>
+    )}
+  </section>
+</Layout>

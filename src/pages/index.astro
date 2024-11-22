@@ -1,27 +1,13 @@
 ---
-
 import PropertyList from '../components/PropertyList.astro';
+import CTA from '../components/sections/CTA.astro';
+import Hero from '../components/sections/Hero.astro';
 import Layout from '../layouts/Layout.astro';
 
-
-const urlSearch = "https://api.wasi.co/v1/property/search?";
-
-const res = await fetch(`${urlSearch}id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}&take=12`, {
-  method: "POST",
-    headers: {
-      "Content-Type": "application/json; charset=UTF-8",
-      Authentication: `Bearer ${import.meta.env.ID_COMPANY}`,
-    }
-});
-
-const data = await res.json();
-
-const properties = Object.keys(data)
-  .filter(key => key !== 'total' && key !== 'status')
-  .map(key => data[key]);
-  
 ---
 
 <Layout title="Propiedades de Wasi">
-    <PropertyList properties={properties} />
+    <Hero />
+    <PropertyList />
+    <CTA />
 </Layout>
