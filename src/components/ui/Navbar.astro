@@ -1,3 +1,4 @@
+
 ---
 
 import { Icon } from "astro-icon/components";
@@ -6,30 +7,49 @@ const navItems = {
   links: [
     { href: "/buy", text: "Buy" },
     { href: "/rent", text:"Rent" },
-    { href: "/services", text: "Services" },
-    { href: "/about", text: "About us" },
     { href: "/blog", text: "Blog" },
   ],
   dropmenu: [
     {
       title: "Services",
       dropdown: [
-        { href: "", text: "Property Management" },
-            { href: "", text: "Luxury Concierge", items: [
-                {href: "", text: "Daily Asistance"},
-                {href: "", text: "Experiences"},
-                {href: "", text: "Transportation", items: [
-                            {href: "" , text: "Ground"},
-                            {href: "" , text: "Water"}
-                    ]}
-            ]}
+        { href: "/property-management", text: "Property Management" },
+       ]
+    },
+    {
+      title: "About us",
+      dropdown: [
+        {href: "/who-we-are" , text: "Who we are"},
+        {href: "/meet-team" , text: "Meet our Team"}
       ]
     },
+    {
+      title: "Luxury Concierge",
+      dropdown: [
+        {href: "/daily-asistance", text: "Daily Asistance"},
+        {href: "", text: "Experiences"},
+        {href: "", text: "Transportation", items: [
+                              {href: "" , text: "Ground"},
+                              {href: "" , text: "Water"}
+                            ]}
+      ]
+    }
   ]
+  
+  
 };
 
 const links = navItems.links;
 const dropdowns = navItems.dropmenu[0].dropdown;
+const dropabout = navItems.dropmenu[1].dropdown;
+// @ts-ignore
+// const luxury = navItems.dropmenu[0].dropdown[1].items[2].items;
+
+const dropluxury = navItems.dropmenu[2].dropdown;
+
+console.log(dropluxury);
+
+
 ---
 
 <nav class="w-full bg-white dark:bg-slate-800 fixed shadow-md p-5 z-10">
@@ -47,20 +67,20 @@ const dropdowns = navItems.dropmenu[0].dropdown;
           <a
             
             href={item.href}
-            class="dark:text-white hover:text-[#60C11C] font-display px-3 py-2 rounded-md text-sm font-light uppercase"
+            class="dark:text-white hover:text-[#60C11C] font-pattern px-3 py-2 rounded-md text-sm font-light uppercase"
           >
             {item.text}
           </a>
         ))}
 
-        <!-- Botón de Soluciones con Dropdown -->
+        <!-- Botón de Servicios con Dropdown -->
         <div class="relative group">
           <!-- Botón principal con el título del dropdown -->
           <button
             type="button"
-            class="dark:text-white hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-display font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
+            class="dark:text-white hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
           >
-            {navItems.dropmenu[0].title}
+          {navItems.dropmenu[0].title}
             <Icon name="arrow" />
           </button>
         
@@ -69,30 +89,75 @@ const dropdowns = navItems.dropmenu[0].dropdown;
             {dropdowns.map((item) => (
               <a
                 href={item.href}
-                class="block px-4 py-2 dark:text-white hover:text-[#60C11C] text-sm font-display font-light uppercase"
+                class="block px-4 py-2 dark:text-white hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
+              >
+                {item.text}
+              </a>
+             
+            ))}
+
+
+        <!-- Botón de LUXURY con Dropdown -->
+
+        <div x-data="{ DropdownOpen: false }" class="relative">
+        
+          <!-- Botón principal con el título del dropdown -->
+        <button
+            @click="DropdownOpen = !DropdownOpen"
+            type="button"
+            class="relative hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center">
+              {navItems.dropmenu[2].title}
+              <Icon name="arrow" />
+        </button>
+        
+          <!-- Menú desplegable -->
+          <div 
+            x-show="DropdownOpen" x-transition
+            class="relative">
+                {dropluxury.map((item) => (
+                  <a
+                    href={item.href}
+                    class="px-4 py-2 hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
+                  >
+                    {item.text}
+                  </a>
+                ))}
+          </div>
+        </div>
+        </div>
+        </div>
+
+         <!-- Botón de About con Dropdown -->
+         <div class="relative group">
+          <!-- Botón principal con el título del dropdown -->
+          <button
+            type="button"
+            class="dark:text-white hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
+          >
+            {navItems.dropmenu[1].title}
+            <Icon name="arrow" />
+          </button>
+        
+          <!-- Menú desplegable -->
+          <div class="absolute left-0 mt-2 w-48 bg-white dark:bg-slate-800 shadow-lg rounded-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-1 transition-all duration-300 ease-in-out">
+            {dropabout.map((item) => (
+              <a
+                href={item.href}
+                class="block px-4 py-2 dark:text-white hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
               >
                 {item.text}
               </a>
             ))}
+            
           </div>
-        </div>
-        
+         </div>
+       
       </div>
 
-      <!-- ThemeToggle - Derecha en Desktop -->
-      <div class="hidden md:flex justify-end items-center">
-        
-      </div>
-
-
-      <div class="md:hidden flex items-center">
-        
-         <!--Themee Toogle  Centro en Mobile -->
-      </div>
       
-      <!-- ThemeToggle y Mobile Menu en Mobile -->
+      <!-- Mobile Menu en Mobile -->
       <div class="md:hidden flex items-center">
-  <!-- Lado derecho en Mobile -->
+
       </div>
 
     </div>

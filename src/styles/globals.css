@@ -4,3 +4,29 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    /* Estilo para el scrollbar global */
+    html {
+      scrollbar-width: thin; /* Firefox */
+      scrollbar-color: #60C11C #F3F4F6; /* Colores en Firefox */
+    }
+  
+    html::-webkit-scrollbar {
+      width: 8px; /* Ancho de la barra */
+      height: 8px; /* Alto para barras horizontales */
+    }
+  
+    html::-webkit-scrollbar-track {
+      background: #F3F4F6; /* Fondo del track */
+    }
+  
+    html::-webkit-scrollbar-thumb {
+      background-color: #60C11C; /* Color del thumb */
+      border-radius: 4px; /* Bordes redondeados */
+      border: 2px solid #F3F4F6; /* Margen interno para que el thumb no ocupe todo */
+    }
+  
+    html::-webkit-scrollbar-thumb:hover {
+      background-color: #60C11C; /* Cambia el color al pasar el cursor */
+    }
+  }
