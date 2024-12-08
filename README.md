@@ -1,4 +1,4 @@
-# Astro Starter Kit: Basics
+# Astro WASI API Website
 
 ```sh
 npm create astro@latest -- --template basics
