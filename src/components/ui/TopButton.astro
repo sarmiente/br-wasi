@@ -1,0 +1,19 @@
+---
+import { Icon } from "astro-icon/components";
+
+
+---
+
+<button class="to-top" type="button">
+    <Icon name="top_vector" class="text-[#60C11C] text-3xl fixed bottom-5 left-5" />
+</button>
+
+<script is:inline>
+    const btn = document.querySelector(".to-top");
+    btn.addEventListener("click", () => {
+        document.documentElement.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        })
+    });
+</script>

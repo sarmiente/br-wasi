@@ -1,0 +1,121 @@
+---
+const urlGetProperty = "https://api.wasi.co/v1/property/get/";
+
+const options = {
+  method: "POST",
+    headers: {
+      "Content-Type": "application/json; charset=UTF-8",
+      Authentication: `Bearer ${import.meta.env.ID_COMPANY}`,
+    }
+};
+
+let property = null;
+
+async function fetchProperty(params: Record<string, string | undefined>) {
+  const propertyId = params.id_property;
+
+  try {
+    const response = await fetch(`${urlGetProperty}${propertyId}?id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}`, options);
+    property = await response.json();
+  } catch (error) {
+    console.error('Error fetching property:', error);
+  }
+}
+
+// Llamar a la función con los parámetros disponibles
+await fetchProperty(Astro.params);
+  
+
+---
+<section class="relative">
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 ">
+           
+    <div id="main-slider" class="keen-slider rounded-xl">
+      {/* @ts-ignore */}
+              <img class="keen-slider__slide flex items-center justify-center text-white text-4xl font-bold h-[60vh] w-auto object-cover" src={property.galleries[0][0].url_original} alt="Project Cover">
+                 {/* @ts-ignore */}
+              <img class="keen-slider__slide flex items-center justify-center text-white text-4xl font-bold h-[60vh] w-auto object-cover" src={property.galleries[0][1].url_original} alt="Project Cover">
+                 {/* @ts-ignore */}
+              <img class="keen-slider__slide flex items-center justify-center text-white text-4xl font-bold h-[60vh] w-auto object-cover" src={property.galleries[0][2].url_original} alt="Project Cover">
+                 {/* @ts-ignore */}
+              <img class="keen-slider__slide flex items-center justify-center text-white text-4xl font-bold h-[60vh] w-auto object-cover" src={property.galleries[0][3].url_original} alt="Project Cover">
+                 {/* @ts-ignore */}
+              <img class="keen-slider__slide flex items-center justify-center text-white text-4xl font-bold h-[60vh] w-auto object-cover" src={property.galleries[0][4].url_original} alt="Project Cover">
+        </div>
+       
+
+
+    <div id="thumbnail-slider" class="keen-slider mt-4 rounded-xl">
+       {/* @ts-ignore */}
+      <img class="keen-slider__slide cursor-pointer flex items-center justify-center text-4xl font-bold h-[100px] w-auto object-cover" src={property.galleries[0][0].url_original} alt="Project Cover">
+       {/* @ts-ignore */}
+      <img class="keen-slider__slide cursor-pointer flex items-center justify-center text-white text-4xl font-bold h-[100px] w-auto object-cover" src={property.galleries[0][1].url_original} alt="Project Cover">
+       {/* @ts-ignore */}
+      <img class="keen-slider__slide cursor-pointer flex items-center justify-center text-white text-4xl font-bold h-[100px] w-auto object-cover" src={property.galleries[0][2].url_original} alt="Project Cover">
+       {/* @ts-ignore */}
+      <img class="keen-slider__slide cursor-pointer flex items-center justify-center text-white text-4xl font-bold h-[100px] w-auto object-cover" src={property.galleries[0][3].url_original} alt="Project Cover">
+       {/* @ts-ignore */}
+      <img class="keen-slider__slide cursor-pointer flex items-center justify-center text-white text-4xl font-bold h-[100px] w-auto object-cover" src={property.galleries[0][4].url_original} alt="Project Cover">
+    
+  
+    </div>
+  </div>
+</section>
+
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.js"></script>
+
+<script>
+  {/* @ts-ignore */}
+  function ThumbnailPlugin(mainSlider) {
+    {/* @ts-ignore */}
+    return (thumbnailSlider) => {
+      {/* @ts-ignore */}
+      function setActiveThumbnail(index) {
+        {/* @ts-ignore */}
+        thumbnailSlider.slides.forEach((slide) =>
+          slide.classList.remove("border-1", "border-black")
+        );
+        if (thumbnailSlider.slides[index]) {
+          thumbnailSlider.slides[index].classList.add("border-1", "border-black");
+        }
+      }
+
+      thumbnailSlider.on("created", () => {
+        setActiveThumbnail(mainSlider.track.details.rel);
+        {/* @ts-ignore */}
+        thumbnailSlider.slides.forEach((slide, idx) => {
+          slide.addEventListener("click", () => {
+            mainSlider.moveToIdx(idx);
+          });
+        });
+      });
+
+      mainSlider.on("slideChanged", () => {
+        const currentIdx = mainSlider.track.details.rel;
+        setActiveThumbnail(currentIdx);
+        thumbnailSlider.moveToIdx(
+          Math.min(thumbnailSlider.track.details.maxIdx, currentIdx)
+        );
+      });
+    };
+  }
+{/* @ts-ignore */}
+  const mainSlider = new KeenSlider("#main-slider", {
+    loop: true, // Puedes activar el loop si lo necesitas
+  });
+{/* @ts-ignore */}
+  const thumbnailSlider = new KeenSlider(
+    "#thumbnail-slider",
+    {
+      slides: {
+        perView: 3,
+        spacing: 10,
+      },
+      loop: true, // Si quieres que el slider de thumbnails también haga loop
+    },
+    [ThumbnailPlugin(mainSlider)]
+  );
+</script>
+
+

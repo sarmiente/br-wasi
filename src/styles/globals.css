@@ -7,6 +7,7 @@
 @layer base {
     /* Estilo para el scrollbar global */
     html {
+      scroll-behavior: smooth;
       scrollbar-width: thin; /* Firefox */
       scrollbar-color: #60C11C #F3F4F6; /* Colores en Firefox */
     }

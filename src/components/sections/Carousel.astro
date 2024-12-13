@@ -2,18 +2,14 @@
 ---
 <section>
   <div class="relative mt-6 overflow-hidden">
-    <!-- Fondo superior -->
-    <div aria-hidden="true" class="absolute -inset-x-1 top-[-25.5%] z-[1] h-2/4 scale-y-75 scale-x-125 rounded-[100%] bg-gray-50 2xl:scale-y-95"></div>
-    <!-- Fondo inferior -->
-    <div aria-hidden="true" class="absolute -inset-x-1 bottom-[-25.5%] z-[1] h-2/4 scale-y-75 scale-x-125 rounded-[100%] bg-gray-50 2xl:scale-y-95"></div>
-
+    
     <!-- Carrusel -->
-    <div class="relative w-full h-96 sm:h-[40rem] xl:h-[60rem] overflow-hidden">
+    <div class="relative w-full h-96 sm:h-[40rem] xl:h-[30rem] overflow-hidden">
       <!-- Animación de carrusel -->
       <div class="flex w-[200%] animate-marquee space-x-4">
         <!-- Primera repetición de las imágenes -->
         <div class="flex items-center gap-4">
-          <img class="h-full w-auto object-cover" src="https://alt.tailus.io/images/slide/cover-one.webp" alt="Project Cover">
+          <img class="h-full w-auto object-cover" src="https://swiperjs.com/demos/images/nature-1.jpg" alt="Project Cover">
           <img class="h-full w-auto object-cover" src="https://alt.tailus.io/images/project-two.webp" alt="Project Cover">
           <img class="h-full w-auto object-cover" src="https://alt.tailus.io/images/slide/cover-four.webp" alt="Project Cover">
           <img class="h-full w-auto object-cover" src="https://alt.tailus.io/images/slide/cover-two.webp" alt="Project Cover">
@@ -34,3 +30,49 @@
     </div>
   </div>
 </section>
+
+
+<!-- Carousel -->
+<section>
+  <div class="relative mt-6 overflow-hidden">
+    
+    <!-- Carrusel -->
+    <div class="relative w-full h-96 sm:h-[40rem] xl:h-[30rem] overflow-hidden">
+      <!-- Animación de carrusel -->
+      <div class="flex w-[200%] animate-marquee space-x-4">
+        <!-- Primera repetición de las imágenes -->
+        
+        <div class="flex items-center gap-4">
+                     {/* @ts-ignore */} 
+          <img class="h-full w-auto object-cover" src={property.galleries[0][0].url} alt="Project Cover">
+          {/* @ts-ignore */}
+          <img class="h-full w-auto object-cover" src={property.galleries[0][1].url} alt="Project Cover">
+          {/* @ts-ignore */}
+          <img class="h-full w-auto object-cover" src={property.galleries[0][2].url} alt="Project Cover">
+          {/* @ts-ignore */}
+          <img class="h-full w-auto object-cover" src={property.galleries[0][3].url} alt="Project Cover">
+          {/* @ts-ignore */}
+          <img class="h-full w-auto object-cover" src={property.galleries[0][4].url} alt="Project Cover">
+          {/* @ts-ignore */}
+          <img class="h-full w-auto object-cover" src={property.galleries[0][5].url} alt="Project Cover">
+        </div>
+
+        <!-- Segunda repetición para un bucle continuo -->
+        <div class=" flex items-center gap-4">
+          {/* @ts-ignore */} 
+          <img class="h-full w-auto object-cover" src={property.galleries[0][6].url} alt="Project Cover">
+          {/* @ts-ignore */}
+          <img class="h-full w-auto object-cover" src={property.galleries[0][7].url} alt="Project Cover">
+          {/* @ts-ignore */}
+          <img class="h-full w-auto object-cover" src={property.galleries[0][8].url} alt="Project Cover">
+          {/* @ts-ignore */}
+          <img class="h-full w-auto object-cover" src={property.galleries[0][9].url} alt="Project Cover">
+          {/* @ts-ignore */}
+          <img class="h-full w-auto object-cover" src={property.galleries[0][10].url} alt="Project Cover">
+          {/* @ts-ignore */}
+          <img class="h-full w-auto object-cover" src={property.galleries[0][11].url} alt="Project Cover">
+        </div>
+      </div>
+    </div>
+  </div>
+                  </section>

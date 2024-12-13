@@ -1,8 +1,10 @@
 ---
+import PropertySwiper from "../../components/sections/PropertySwiper.astro";
 import Layout from "../../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
 
+const urlGetProperty = "https://api.wasi.co/v1/property/get/";
 
-// @ts-nocheck
 const options = {
   method: 'POST',
   headers: {
@@ -11,7 +13,6 @@ const options = {
   }
 };
 
-const urlGetProperty = "https://api.wasi.co/v1/property/get/";
 let property = null;
 
 async function fetchProperty(params: Record<string, string | undefined>) {
@@ -30,43 +31,77 @@ await fetchProperty(Astro.params);
 
 // @ts-ignore
 let galleries = property.galleries;
-console.log(Object(galleries[0][1].url));
+// console.log(Object(galleries[0][1].url));
+// console.log(property.main_image);
+
+// console.log(property.features);
 
 ---
-
-<Layout title="">
-
-  
-              <section class="py-40">
-                <div class="mx-auto max-w-4xl px-6 md:px-12">
-                  <button  onclick="window.history.back()">Back
+<Layout title="Property">
+ 
+              <section class="py-32">
+                {/*                
+                <div class="mx-auto px-6 md:px-12">
+                  <button  onclick="window.history.back()">
+                    Back
                   </button>
                 </div>
+                */}
                 {property ? (
-                  <div class="mx-auto max-w-4xl px-6 md:px-12">
-                      <div class="mt-16">
-                           {/* @ts-ignore */}                   
-                          <h1 class="text-3xl font-semibold text-zinc-950 dark:text-white font-display">{property.title}</h1>
+                  <div class="mx-auto max-w-6xl px-6 md:px-4">
+                      <div class="mt-12">
+                           {/* @ts-ignore */}   
+                           <h2 class="text-2xl font-heading uppercase text-gray-900 sm:text-4xl lg:text-5xl pb-5">{property.title}</h2>                
+                          
                           {/* @ts-ignore */}
-                          <p class="text-sm tracking-wide text-zinc-700 dark:text-zinc-300"> {property.city_label}</p>
+                          <p class="text-md tracking-wide uppercase font-pattern dark:text-zinc-300"> {property.city_label}</p>
+                          {/* @ts-ignore */}
+                          <p class="text-sm tracking-wide uppercase font-pattern text-zinc-700 dark:text-zinc-300"> {property.zone_label}</p>
                       </div>
                       {/* @ts-ignore */}
-                      <p class="mt-12 text-sm text-zinc-600 dark:text-zinc-200 sm:w-2/3 xl:w-1/2 capitalize font-body">{property.address}</p>
+                      <p class="mt-8 text-sm text-zinc-600 dark:text-zinc-200 sm:w-2/3 xl:w-1/2 capitalize font-body">{property.address}</p>
                   </div>
-                  <div class="mx-auto mt-16 max-w-6xl px-1 md:px-12">
-                      <div class="grid grid-cols-3 gap-1">
-                        {/* @ts-ignore */}
-                          <img class="col-span-2 h-full w-full rounded-md object-cover" src={property.main_image.url} alt="project cover" width="2000" height="1333">
-                          {/* @ts-ignore */}
-                          <img class="col-span-1 h-full w-full rounded-md object-cover" src={property.galleries[0][2].url} alt="project cover" width="1380" height="1380">
-                      </div>
-                  </div>   
-  
-  
-  
-  
-    ) : (
-      <p>Cargando datos de la propiedad...</p>
-    )}
-  </section>
+                  <PropertySwiper />
+                  <!-- Características -->
+<div class="m-auto max-w-5xl mx-auto flex flex-wrap justify-center gap-12 text-center">
+
+  <!-- Área -->
+  <div class="flex flex-col items-center space-y-2">
+    <Icon name="area_vector" class="text-[#60C11C] text-2xl" />
+     <!-- @ts-ignore -->
+    <p class="font-pattern  text-sm">{property.built_area ? `${property.built_area} m²` : ''}</p>
+  </div>
+
+  <!-- Baños -->
+  <div class="flex flex-col items-center space-y-2">
+    <Icon name="bath_vector" class="text-[#60C11C] text-2xl" />
+    
+    <!-- @ts-ignore -->
+    <p class="font-pattern text-sm">{property.bathrooms || ''} Bathrooms </p>
+  </div>
+
+  <!-- Habitaciones -->
+  <div class="flex flex-col items-center space-y-2">
+    <Icon name="bed_vector" class="text-[#60C11C] text-2xl" />
+    
+    <!-- @ts-ignore -->
+    <p class="font-pattern text-sm">{property.bedrooms || ''} Bedrooms </p>
+  </div>
+  <!-- @ts-ignore -->
+  {property.availability_label}
+
+</div>
+
+                    ) : (
+                    <p>Cargando datos de la propiedad...</p>
+                  )}
+      </section>
+        <div class="mx-auto max-w-6xl">
+            {/* @ts-ignore */}
+            <p class="text-sm tracking-wide text-zinc-700 dark:text-zinc-300"> {property.comment}
+      </div>
+
+      
+      
+      
 </Layout>
