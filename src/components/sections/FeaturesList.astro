@@ -1,0 +1,51 @@
+---
+// @ts-nocheck
+import type { Features } from '../../api/[id_property].json'; // Ajusta la ruta si las interfaces están en otro archivo.
+
+const { internal, external }: Features = Astro.props;
+---
+
+<div class="p-5 max-w-5xl mx-auto">
+  <!-- Título general -->
+  <h2 class="text-2xl font-bold text-gray-800 mb-6">Características</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Características Internas -->
+    <div>
+      <h3 class="text-xl font-semibold text-gray-700 mb-4">Características Internas</h3>
+      <ul class="space-y-3">
+        {internal.length > 0 ? (
+          internal.map((item) => (
+            <li key={item.id} class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg shadow-md">
+              <div class="w-8 h-8 bg-[#60C11C] text-white rounded-full flex items-center justify-center text-sm font-semibold">
+                {item.id}
+              </div>
+              <span class="text-gray-800">{item.nombre || item.name}</span>
+            </li>
+          ))
+        ) : (
+          <p class="text-gray-500">No hay características internas disponibles.</p>
+        )}
+      </ul>
+    </div>
+
+    <!-- Características Externas -->
+    <div>
+      <h3 class="text-xl font-semibold text-gray-700 mb-4">Características Externas</h3>
+      <ul class="space-y-3">
+        {external.length > 0 ? (
+          external.map((item) => (
+            <li key={item.id} class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg shadow-md">
+              <div class="w-8 h-8 bg-[#60C11C] text-white rounded-full flex items-center justify-center text-sm font-semibold">
+                {item.id}
+              </div>
+              <span class="text-gray-800">{item.nombre || item.name}</span>
+            </li>
+          ))
+        ) : (
+          <p class="text-gray-500">No hay características externas disponibles.</p>
+        )}
+      </ul>
+    </div>
+  </div>
+</div>

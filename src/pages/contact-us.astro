@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Team from "../components/sections/Team.astro";
+import Form from "../components/sections/Form.astro";
 
 
 ---
@@ -22,79 +22,11 @@ import Team from "../components/sections/Team.astro";
   
   </section>
   
-
-  <!--
-  Heads up! 👋
-
-  Plugins:
-    - @tailwindcss/forms
--->
-
 <section class="bg-gray-100 ">
     <div class="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
 
       
-  
-        <div class="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-          <form action="#" class="space-y-4">
-            <div>
-              <label class="sr-only" for="name">Name</label>
-              <input
-                class="w-full rounded-lg border-gray-200 p-3 text-sm"
-                placeholder="Name"
-                type="text"
-                id="name"
-              />
-            </div>
-  
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div>
-                <label class="sr-only" for="email">Email</label>
-                <input
-                  class="w-full rounded-lg border-gray-200 p-3 text-sm"
-                  placeholder="Email address"
-                  type="email"
-                  id="email"
-                />
-              </div>
-  
-              <div>
-                <label class="sr-only" for="phone">Phone</label>
-                <input
-                  class="w-full rounded-lg border-gray-200 p-3 text-sm"
-                  placeholder="Phone Number"
-                  type="tel"
-                  id="phone"
-                />
-              </div>
-            </div>
-  
-        
-  
-            <div>
-              <label class="sr-only" for="message">Message</label>
-  
-              <textarea
-                class="w-full rounded-lg border-gray-200 p-3 text-sm"
-                placeholder="Message"
-                rows="4"
-                id="message"
-              ></textarea>
-            </div>
-            <label class="font-pattern">
-                <input type="checkbox" class="accent-black	" checked> 
-                I accept <span class="font-medium">terms & conditions</span> for processing personal data
-              </label>
-            <div class="mt-4">
-              <button
-                type="submit"
-                class="inline-block w-full rounded-lg bg-[#60C11C] px-5 py-3 font-medium text-white sm:w-auto"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
+        <Form />
 
     </div>
   </section>

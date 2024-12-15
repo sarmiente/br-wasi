@@ -10,6 +10,7 @@ const { title } = Astro.props;
 import "../../src/styles/globals.css"
 import Basehead from "../components/layout/BaseHead.astro";
 import TopButton from "../components/ui/TopButton.astro";
+import Whatsapp from "../components/ui/Whatsapp.astro";
 
 ---
 
@@ -23,9 +24,8 @@ import TopButton from "../components/ui/TopButton.astro";
 		<Navbar />
 		<slot />
 		<TopButton />
-		<Footer />
-		
-		
+		<Whatsapp />
+		<Footer />		
 	</body>
 </html>
 

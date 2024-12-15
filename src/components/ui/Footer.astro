@@ -9,8 +9,8 @@ const footerData = [
   {
     title: "About Us",
     items: [
-      { text: "Company History", href : "" },
-      { text: "Meet the Team", href : "" },
+      { text: "Who we are", href : "/who-we-are" },
+      { text: "Meet the Team", href : "/meet-team" },
     ],
   },
   {
@@ -43,17 +43,19 @@ const footerData = [
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
         <div class="flex justify-center text-teal-600 sm:justify-start">
-          <Image src={Logo} alt="" width={100}/>
+          <a href="/">
+            <Image src={Logo} alt="" width={100}/>
+          </a>
         </div>
 
-        <p class="mt-6 max-w-md text-center font-hero leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
+        <p class="mt-6 max-w-md text-center font-pattern leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
          Your home away home
         </p>
 
         <ul class="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
           <li>
             <a
-              href="#"
+              href="https://www.facebook.com/profile.php?id=61555851065583"
               rel="noreferrer"
               target="_blank"
               class="text-[#60C11C] transition hover:text-teal-700/75"
@@ -65,7 +67,7 @@ const footerData = [
 
           <li>
             <a
-              href="#"
+              href="https://www.instagram.com/brsolutions_co"
               rel="noreferrer"
               target="_blank"
               class="text-[#60C11C] transition hover:text-teal-700/75"
@@ -80,13 +82,13 @@ const footerData = [
 
       <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
         <div class="text-center sm:text-left">
-          <p class="text-lg font-medium font-heading text-gray-900">About Us</p>
+          <p class="text-lg uppercase font-pattern text-gray-900">About Us</p>
 
           <ul class="mt-8 space-y-4 text-sm">
            {
             footerData[0].items.map((item) => (
             <li>
-                <a class="text-gray-700  transition font-hero hover:text-gray-700/75" href={item.href}>
+                <a class="text-gray-700  transition font-pattern uppercase hover:text-gray-700/75" href={item.href}>
                   {item.text}
                 </a>
             </li>
@@ -97,13 +99,13 @@ const footerData = [
         </div>
 
         <div class="text-center sm:text-left">
-          <p class="text-lg font-medium font-heading text-gray-900">Our Services</p>
+          <p class="text-lg uppercase font-pattern text-gray-900">Our Services</p>
 
           <ul class="mt-8 space-y-4 text-sm">
             {
               footerData[1].items.map((item) => (
                 <li>
-                  <a class="text-gray-700 transition font-hero hover:text-gray-700/75" href={item.href}>
+                  <a class="text-gray-700 transition font-pattern uppercase hover:text-gray-700/75" href={item.href}>
                     {item.text}
                   </a>
                 </li>
@@ -113,13 +115,13 @@ const footerData = [
         </div>
 
         <div class="text-center sm:text-left">
-          <p class="text-lg font-medium font-heading text-gray-900">Helpful Links</p>
+          <p class="text-lg uppercase font-pattern text-gray-900">Helpful Links</p>
 
           <ul class="mt-8 space-y-4 text-sm">
             {
               footerData[2].items.map((item) => (
                 <li>
-                  <a class="text-gray-700 transition font-hero hover:text-gray-700/75" href={item.href}>
+                  <a class="text-gray-700 transition font-pattern uppercase hover:text-gray-700/75" href={item.href}>
                     {item.text}
                   </a>
                 </li>
@@ -131,40 +133,48 @@ const footerData = [
         </div>
 
         <div class="text-center sm:text-left">
-          <p class="text-lg font-medium font-heading text-gray-900">Contact Us</p>
+          <p class="text-lg uppercase font-pattern text-gray-900">Contact Us</p>
 
           <ul class="mt-8 space-y-4 text-sm">
-            <li>
-              <a
-                class="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                href="mailto:info@brsolution.com.co"
-              >
-                <Icon class="h-4 w-4" name="envelop" />
-
-                <span class="flex-1 text-gray-700 font-hero">info@brsolution.com.co</span>
-              </a>
-            </li>
-
-            <li>
-              <a
-                class="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                href="#"
-              >
-                <Icon class="h-4 w-4 text-green-500" name="whatsapp" />
-
-                <span class="flex-1 text-gray-700 font-hero">+57 324 201 6401</span>
-              </a>
-            </li>
+           
 
             <li
-              class="flex items-start justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
+              class="flex sm:justify-start items-center justify-center  gap-1.5"
+            >
+            <Icon class="h-4 w-4 text-green-500" name="whatsapp" />
+
+              <a href="https://api.whatsapp.com/send/?phone=573242016401&text=Hola%2C%20estoy%20interesado%20en%20sus%20servicios">
+                <span class=" p-1 font-pattern text-xs">+57 324 201 6401</span>
+              </a>
+            </li>
+
+          
+            <li
+              class="flex sm:justify-start items-center justify-center gap-1.5"
+            >
+              <Icon class="h4 w-4 " name="envelop_vector" />
+
+              <a href="mailto:info@brsolution.com.co">
+                <span class="text-white p-1 font-pattern text-xs bg-[#000080] rounded-2xl">info@brsolution.com.co</span>
+              </a>
+            </li>
+
+
+
+            <li
+              class="flex sm:justify-start items-center justify-center gap-1.5"
             >
               <Icon class="h4 w-4 text-red-600" name="location" />
 
-              <address class="-mt-0.5 flex-1 not-italic text-gray-700 font-hero">
+              <address class="-mt-0.5 not-italic text-gray-700 font-pattern uppercase">
                 Cartagena de Indias, Colombia
               </address>
             </li>
+
+            
+
+
+
           </ul>
         </div>
       </div>
@@ -172,13 +182,13 @@ const footerData = [
 
     <div class="mt-12 border-t border-gray-100 pt-6">
       <div class="text-center sm:flex sm:justify-between sm:text-left">
-        <a href="http://devs.sarpin.agency/" target="_blank"><span class="font-pattern block sm:inline text-sm text-gray-400 hover:text-orange-500 pb-5 md:p-0">sarpin.agency</span></a>
+        <a href="http://devs.sarpin.agency/" target="_blank"><span class="font-pattern block sm:inline text-sm text-gray-400 hover:text-[#60C11C] pb-5 md:p-0">sarpin.agency</span></a>
         <p class="text-sm text-gray-500">
           
 
           <a
-            class="inline-block font-body text-[#60C11C] transition hover:text-[#60C11C]/75"
-            href="#"
+            class="inline-block font-pattern text-[#60C11C] transition hover:text-[#000080]"
+            href="/terms-and-conditions"
           >
             Terms & Conditions
           </a>
@@ -186,14 +196,14 @@ const footerData = [
           <span>&middot;</span>
 
           <a
-            class="inline-block font-body text-[#60C11C] transition hover:text-teal-600/75"
-            href="#"
+            class="inline-block font-pattern text-[#60C11C] transition hover:text-[#000080]"
+            href="/privacy-policy"
           >
             Privacy Policy
           </a>
         </p>
         
-        <p class="mt-4 text-sm font-body text-gray-500 sm:order-first sm:mt-0">BR Solutions &copy; {date.getFullYear()} All rights reserved. </p>
+        <p class="mt-4 text-sm font-pattern text-gray-500 sm:order-first sm:mt-0">BR SOLUTIONS &copy; {date.getFullYear()}. All rights reserved. </p>
       </div>
     </div>
   </div>

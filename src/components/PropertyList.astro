@@ -1,10 +1,9 @@
 ---
 // Importaciones necesarias
 import type { The0 } from "../api/[id_property].json";
-import { Icon } from "astro-icon/components";
 
 const urlSearch = "https://api.wasi.co/v1/property/search?";
-const take = 50;
+const take = 100;
 
 const res = await fetch(`${urlSearch}id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}&take=${take}&order_by=title`, {
   method: "POST",
@@ -34,11 +33,11 @@ console.log(Object.keys(data));
   </h2>
 
   <!-- Filtros y búsqueda -->
-  <div class="mx-auto w-3/4 md:w-1/2 flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+  <div class="mx-auto w-2/3 md:w-1/2 flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
     <!-- Campo de búsqueda -->
     <input
       type="search"
-      class="search w-full  border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring focus:ring-green-500 font-body"
+      class="search w-full  border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:ring focus:ring-green-500 font-pattern"
       placeholder="Search by Title"
     />
 
@@ -105,75 +104,69 @@ console.log(Object.keys(data));
   -->
   </div>
 
-  <!-- Contenedor de propiedades -->
-  <div class="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3 p-5 md:p-10 list">
-    <!-- Cada propiedad -->
-    {properties.map((property: The0) => (
-      <div class="item">
-        <a
-          href={`/property/${property.id_property}`}
-          class="block rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl"
-        >
-          <!-- Imagen de la propiedad -->
+  
+    <!-- Contenedor de propiedades -->
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 p-5 sm:p-8 list">
+  <!-- Cada propiedad -->
+  {properties.map((property: The0) => (
+    <div class="rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+      <a href={`/property/${property.id_property}`} class="block">
+        <!-- Imagen de la propiedad -->
+        <div class="relative">
           <img
             alt="Property Image"
             src={property.main_image.url_original}
             class="h-56 w-full object-cover"
           />
-
           <!-- Etiqueta de ubicación -->
-          <div class="absolute top-2 right-2 bg-black bg-opacity-50 w-auto p-2 text-white">
-            <p class="text-sm flex font-display">{property.city_label}</p>
+          <div class="absolute top-2 right-2 bg-black bg-opacity-75 text-white text-xs px-3 py-1 rounded">
+            <p class="font-display uppercase">{property.city_label}</p>
           </div>
+        </div>
 
-          <!-- Detalles de la propiedad -->
-          <div class="p-4 bg-white">
-            <!-- Título -->
-            <h2 class="titulo text-md font-display text-gray-800 mb-1 uppercase">
+                                              <!-- Detalles de la propiedad -->
+        <div class="p-4 bg-white">
+                                              <!-- Título y precio -->
+          <div class="mb-4">
+            <h2 class="titulo text-lg font-medium font-heading text-gray-800 uppercase truncate">
               {property.title}
             </h2>
-
-            <!-- Precio -->
-            <p class="text-sm text-gray-500 mb-4 font-pattern">
-              {property.sale_price_label || property.rent_price_label}
-
-            </p>
-
-            <!-- Características -->
-            <div class="mt-4 grid grid-cols-3 gap-4 text-xs">
-              <!-- Área -->
-              <div class="flex flex-col items-center">
-                <Icon name="area_vector" class="text-[#60C11C] text-lg md:text-xl" />
-                <p class="text-gray-500 mt-1 font-display">Área</p>
-                <p class="font-medium font-pattern">{property.built_area} m²</p>
-              </div>
-
-              <!-- Baños -->
-              <div class="flex flex-col items-center">
-                <Icon name="bath_vector" class="text-[#60C11C] text-lg md:text-xl" />
-                <p class="text-gray-500 mt-1 font-display">Baños</p>
-                <p class="font-medium font-pattern">{property.bathrooms}</p>
-              </div>
-
-              <!-- Habitaciones -->
-              <div class="flex flex-col items-center">
-                <Icon name="bed_vector" class="text-[#60C11C] text-lg md:text-xl" />
-                <p class="text-gray-500 mt-1 font-display">Habitaciones</p>
-                <p class="font-medium font-pattern">{property.bedrooms}</p>
-              </div>
-            </div>
+            <p class="text-sm text-gray-600 font-light font-display">
+  {property.sale_price_label || property.rent_price_label }
+</p>
           </div>
-        </a>
-      </div>
-    ))}
-  </div>
+                                              <!-- Botón "View Property" -->
+          <div class="flex items-center justify-between mt-4">
+            <p class="text-xs text-gray-600 font-light font-display">
+              {property.id_property}
+            </p>
+  
+                                              <!-- Botón "View Property" -->
+            <div class="w-1/2 flex justify-end">
+                <a
+                  href={`/property/${property.id_property}`}
+                  class="bg-[#60C11C] font-pattern uppercase p-1.5 text-xs rounded-md"
+                >
+                  View Property
+                </a>
+            </div>
+          </div>        
+        </div>
+      </a>
+    </div>
+  ))}
+</div>
+
+
+
+
 
   <!-- Controles de paginación -->
   <div id="pagination-controls" class="text-center mt-8 ">
     <div class="inline-flex items-center justify-center gap-3">
       
     
-      <ul class="pagination flex gap-4"></ul>
+      <ul class="pagination flex gap-4 font-display font-light"></ul>
     
       
     </div>
@@ -191,7 +184,7 @@ console.log(Object.keys(data));
     valueNames: ['titulo'], // Clases a buscar
     listClass: 'list', // Clase que contiene los elementos
     searchClass: 'search', // Clase del input de búsqueda
-    page: 3,
+    page: 6,
     pagination: true
   };
 
