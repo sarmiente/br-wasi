@@ -1,0 +1,153 @@
+---
+import { Icon } from "astro-icon/components";
+
+const navItems = {
+  links: [
+    { href: "/buy", text: "Buy" },
+    { href: "/rent", text:"Rent" },
+    { href: "/blog", text: "Blog" },
+  ],
+  dropmenu: [
+    {
+      title: "Services",
+      dropdown: [
+        { href: "/property-management", text: "Property Management" },
+       ]
+    },
+    {
+      title: "About us",
+      dropdown: [
+        {href: "/who-we-are" , text: "Who we are"},
+        {href: "/meet-team" , text: "Meet our Team"}
+      ]
+    },
+    {
+      title: "Luxury Concierge",
+      dropdown: [
+        {href: "/daily-asistance", text: "Daily Asistance"},
+        {href: "", text: "Experiences"},
+        {href: "", text: "Transportation", items: [
+                              {href: "" , text: "Ground"},
+                              {href: "" , text: "Water"}
+                            ]}
+      ]
+    }
+  ]
+  
+  
+};
+
+const links = navItems.links;
+
+const dropdowns = navItems.dropmenu[0].dropdown;
+const dropabout = navItems.dropmenu[1].dropdown;
+const dropluxury = navItems.dropmenu[2].dropdown;
+---
+
+<div x-data="{ openToggle: false }">
+    <!-- Botón de menú -->
+    <div class="md:hidden" @click="openToggle = ! openToggle">
+        <button type="button" class="text-black dark:text-white focus:outline-none" aria-label="Main menu mobile" :aria-expanded="openToggle.toString()">
+            <div class="w-5 h-0.5 rounded-full bg-black dark:bg-white mb-1"></div>
+            <div class="w-5 h-0.5 rounded-full bg-black dark:bg-white mb-1"></div>
+            <div class="w-5 h-0.5 rounded-full bg-black dark:bg-white"></div>
+        </button>
+    </div>
+
+    <!-- Menú móvil -->
+    <div x-show="openToggle" class="flex flex-col mt-16 lg:hidden absolute top-4 left-0 bg-white dark:bg-slate-800 z-50 w-full items-center gap-10 py-15 pb-10" @click.away="openToggle = false">
+        {links.map(({ href, text}) => (
+            <a
+                class="dark:text-white hover:text-[#60C11C] font-pattern px-3 py-2 rounded-md text-sm font-light uppercase"
+                href={href} 
+            >
+                {text}
+            </a>
+        ))}
+
+        <!-- Dropdown para Móvil -->
+        <div x-data="{ DropdownOpen: false }" class="w-full text-center">
+            <button
+                class="dark:text-white hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
+                @click="DropdownOpen = !DropdownOpen"
+            >
+            {navItems.dropmenu[0].title}
+            <Icon name="arrow" />
+            </button>
+            <div x-show="DropdownOpen" class="flex flex-col items-center mt-2" @click.away="DropdownOpen = false">
+                {dropdowns.map(({ href, text }) => (
+                    <a
+                    
+                        href={href}
+                        class="dark:text-white font-pattern font-light uppercase lg:text-base text-sm leading-6 py-1 hover:text-orange-500"
+                       
+                    >
+                        {text}
+                    </a>
+                ))}
+                  <!-- Botón de LUXURY con Dropdown -->
+
+        <div x-data="{ DropdownOpen: false }" class="relative">
+        
+            <!-- Botón principal con el título del dropdown -->
+          <button
+              @click="DropdownOpen = !DropdownOpen"
+              type="button"
+              class="relative hover:text-[#60C11C] px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
+                {navItems.dropmenu[2].title}
+                <Icon name="arrow" />
+          </button>
+          
+            <!-- Menú desplegable -->
+            <div 
+              x-show="DropdownOpen" x-transition
+              class="relative">
+                  {dropluxury.map((item) => (
+                    <a
+                      href={item.href}
+                      class="block px-4 py-2 hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
+                    >
+                      {item.text}
+                    </a>
+                  ))}
+            </div>
+          </div>
+            </div>
+        </div>
+            <!-- Botón de About con Dropdown -->
+            <div x-data="{ aboutToggle: false }"   >
+                <!-- Botón principal con el título del dropdown -->
+                <button
+                    @click="aboutToggle = ! aboutToggle"
+                  type="button"
+                  class="dark:text-white hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
+                >
+                  {navItems.dropmenu[1].title}
+                  <Icon name="arrow" />
+                </button>
+              
+                <!-- Menú desplegable -->
+                <div x-show="aboutToggle" x-transition class="absolute left-0 mt-2 w-48 bg-white dark:bg-slate-800 shadow-lg rounded-md py-2 opacity-0 invisible transition-all duration-300 ease-in-out"
+                @click.away="aboutToggle = false"
+                >
+                  {dropabout.map((item) => (
+                    <a
+                      href={item.href}
+                      class="block px-4 py-2 dark:text-white hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
+                    >
+                      {item.text}
+                    </a>
+                  ))}
+                  
+                </div>
+               </div>
+      
+              <!-- Botón de Contact Us -->
+               <a
+                  href="/contact-us"
+                  class="dark:text-white hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
+                >
+                    Contact us
+              </a>
+    </div>
+</div>
