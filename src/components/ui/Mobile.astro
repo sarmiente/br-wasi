@@ -114,32 +114,34 @@ const dropluxury = navItems.dropmenu[2].dropdown;
           </div>
             </div>
         </div>
+
+
             <!-- Botón de About con Dropdown -->
-            <div x-data="{ aboutToggle: false }"   >
+            <div x-data="{ aboutToggle: false }" class="text-center">
                 <!-- Botón principal con el título del dropdown -->
-                <button
-                    @click="aboutToggle = ! aboutToggle"
-                  type="button"
-                  class="dark:text-white hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
-                >
-                  {navItems.dropmenu[1].title}
-                  <Icon name="arrow" />
-                </button>
+                  <!-- Botón principal con el título del dropdown -->
+          <button
+           @click="aboutToggle = ! aboutToggle"
+          type="button"
+          class="relative hover:text-[#60C11C] px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-center">
+          {navItems.dropmenu[1].title}
+            <Icon name="arrow" />
+      </button>
+           <!-- Menú desplegable -->
+           <div 
+           x-show="aboutToggle" x-transition
+           class="relative">
+           {dropabout.map((item) => (
+            <a
+              href={item.href}
+              class="block px-4 py-2 dark:text-white hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
+            >
+              {item.text}
+            </a>
+          ))}
+         </div>
+                            
               
-                <!-- Menú desplegable -->
-                <div x-show="aboutToggle" x-transition class="absolute left-0 mt-2 w-48 bg-white dark:bg-slate-800 shadow-lg rounded-md py-2 opacity-0 invisible transition-all duration-300 ease-in-out"
-                @click.away="aboutToggle = false"
-                >
-                  {dropabout.map((item) => (
-                    <a
-                      href={item.href}
-                      class="block px-4 py-2 dark:text-white hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
-                    >
-                      {item.text}
-                    </a>
-                  ))}
-                  
-                </div>
                </div>
       
               <!-- Botón de Contact Us -->
