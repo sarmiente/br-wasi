@@ -1,0 +1,54 @@
+---
+// @ts-nocheck
+import { Icon } from 'astro-icon/components';
+import type { The0_Gallery } from '../../api/types'; // Define los tipos en un archivo .ts si no existen.
+
+const urlGetGalleries = "http://api.wasi.co/v1/gallery/all/";
+
+const options = {
+  method: 'POST', // Asegúrate de que la API requiere POST; si es GET, cámbialo aquí.
+  headers: {
+    "Content-Type": "application/json; charset=UTF-8",
+    Authentication: `Bearer ${import.meta.env.ID_COMPANY}`,
+  },
+};
+
+let MainImage = [];
+
+
+// Función para obtener las características desde la API
+async function fetchGalleries(params: Record<string, string | undefined>) {
+  const propertyId = params.id_property;
+
+  if (!propertyId) {
+    console.error("No se proporcionó el ID de la propiedad.");
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      `${urlGetGalleries}?id_property=${propertyId}&id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}`,
+      options
+    );
+
+    if (!response.ok) {
+      throw new Error(`Error en la solicitud: ${response.statusText}`);
+    }
+
+    const gallerie = await response.json();
+    console.log(gallerie);
+    
+    // MainImage = gallerie || [];
+    //internal = feature.internal || [];
+    // external = feature.external || [];
+  } catch (error) {
+    console.error("Error al obtener las características:", error);
+  }
+}
+
+// Llamar a la función con los parámetros disponibles
+await fetchGalleries(Astro.params);
+
+---
+
+

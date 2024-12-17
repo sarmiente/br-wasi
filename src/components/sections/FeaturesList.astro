@@ -1,8 +1,53 @@
 ---
 // @ts-nocheck
-import type { Features } from '../../api/[id_property].json'; // Ajusta la ruta si las interfaces están en otro archivo.
+import { Icon } from 'astro-icon/components';
+import type { Features } from '../../api/types'; // Define los tipos en un archivo .ts si no existen.
 
-const { internal, external }: Features = Astro.props;
+const urlGetFeatures = "https://api.wasi.co/v1/feature/all";
+
+const options = {
+  method: 'POST', // Asegúrate de que la API requiere POST; si es GET, cámbialo aquí.
+  headers: {
+    "Content-Type": "application/json; charset=UTF-8",
+    Authentication: `Bearer ${import.meta.env.ID_COMPANY}`,
+  },
+};
+
+let internal = [];
+let external = [];
+
+// Función para obtener las características desde la API
+async function fetchFeature(params: Record<string, string | undefined>) {
+  const propertyId = params.id_property;
+
+  if (!propertyId) {
+    console.error("No se proporcionó el ID de la propiedad.");
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      `${urlGetFeatures}?id_property=${propertyId}&id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}`,
+      options
+    );
+
+    if (!response.ok) {
+      throw new Error(`Error en la solicitud: ${response.statusText}`);
+    }
+
+    const feature = await response.json();
+    // console.log(feature);
+    
+    internal = feature.internal || [];
+    external = feature.external || [];
+  } catch (error) {
+    console.error("Error al obtener las características:", error);
+  }
+}
+
+// Llamar a la función con los parámetros disponibles
+await fetchFeature(Astro.params);
+
 ---
 
 <div class="p-5 max-w-5xl mx-auto">
@@ -16,9 +61,12 @@ const { internal, external }: Features = Astro.props;
       <ul class="space-y-3">
         {internal.length > 0 ? (
           internal.map((item) => (
-            <li key={item.id} class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg shadow-md">
+            <li
+              key={item.id}
+              class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg shadow-md"
+            >
               <div class="w-8 h-8 bg-[#60C11C] text-white rounded-full flex items-center justify-center text-sm font-semibold">
-                {item.id}
+                <Icon name="check" />
               </div>
               <span class="text-gray-800">{item.nombre || item.name}</span>
             </li>
@@ -35,9 +83,12 @@ const { internal, external }: Features = Astro.props;
       <ul class="space-y-3">
         {external.length > 0 ? (
           external.map((item) => (
-            <li key={item.id} class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg shadow-md">
+            <li
+              key={item.id}
+              class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg shadow-md"
+            >
               <div class="w-8 h-8 bg-[#60C11C] text-white rounded-full flex items-center justify-center text-sm font-semibold">
-                {item.id}
+                <Icon name="check" />
               </div>
               <span class="text-gray-800">{item.nombre || item.name}</span>
             </li>

@@ -1,5 +1,6 @@
 ---
 // @ts-nocheck
+
 import FeaturesList from "../../components/sections/FeaturesList.astro";
 import PropertySwiper from "../../components/sections/PropertySwiper.astro";
 import Layout from "../../layouts/Layout.astro";
@@ -34,9 +35,11 @@ await fetchProperty(Astro.params);
 
 let galleries = property.galleries;
 
+
+
 ---
 <Layout title="Property">
-   <section class="py-32">
+   <section class="pt-32 pb-16">
       {/*                
         <div class="mx-auto px-6 md:px-12">
                   <button  onclick="window.history.back()">
@@ -101,9 +104,26 @@ let galleries = property.galleries;
                   )}
       </section>
 
+
+
+      <section>
+        <div class="mx-auto max-w-6xl px-6 md:px-4">
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+          <div class="h-32 rounded-lg  items-center place-content-center text-center">
+            <p class="font-hero text-2xl">
+              {property.sale_price_label || property.rent_price_label}
+
+            </p>
+          </div>
+          <div class="h-auto rounded-lg items-center place-content-center text-justify lg:col-span-2">
+            <p class="font-pattern">{property.comment}</p>
+          </div>
+        </div>
+      </div>
+      </section>
       
          
-
+<FeaturesList />
 
 
       

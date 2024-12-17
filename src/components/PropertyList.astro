@@ -5,6 +5,8 @@ import type { The0 } from "../api/[id_property].json";
 const urlSearch = "https://api.wasi.co/v1/property/search?";
 const take = 100;
 
+
+
 const res = await fetch(`${urlSearch}id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}&take=${take}&order_by=title`, {
   method: "POST",
     headers: {
@@ -128,8 +130,10 @@ const properties = Object.keys(data)
               {property.title}
             </h2>
             <p class="text-sm text-gray-600 font-light font-display">
-  {property.sale_price_label || property.rent_price_label }
-</p>
+                  
+              {property.sale_price_label || property.rent_price_label}
+
+            </p>
           </div>
                                               <!-- Botón "View Property" -->
           <div class="flex items-center justify-between mt-4">
