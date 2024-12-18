@@ -6,7 +6,6 @@ const urlSearch = "https://api.wasi.co/v1/property/search?";
 const take = 100;
 
 
-
 const res = await fetch(`${urlSearch}id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}&take=${take}&order_by=title`, {
   method: "POST",
     headers: {
@@ -27,7 +26,7 @@ const properties = Object.keys(data)
 <section id="properties" class="py-12">
   <!-- Título del portafolio -->
   <h2 class="text-center text-xl md:text-3xl font-heading uppercase pt-10 pb-10">
-    Explore our Portfolio
+    Explora nuestro portafolio de propiedades
   </h2>
 
   <!-- Filtros y búsqueda -->
@@ -35,9 +34,8 @@ const properties = Object.keys(data)
     <!-- Campo de búsqueda -->
     <input
       type="search"
-      class="search w-full  border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:ring focus:ring-green-500 font-pattern"
-      placeholder="Search by Title"
-    />
+      class="search w-full  border border-gray-300 rounded-lg p-2 text-xs focus:outline-none focus:ring focus:ring-green-500 font-pattern"
+      placeholder="Busca por titulo, ID de propiedad o precio" />
 
     <!-- Filtro de precio 
     <div x-data="{ isOpen: false }" class="w-full md:w-1/2 relative border border-gray-300 rounded-lg shadow-md bg-white">
@@ -129,7 +127,7 @@ const properties = Object.keys(data)
             <h2 class="titulo text-lg font-medium font-heading text-gray-800 uppercase truncate">
               {property.title}
             </h2>
-            <p class="text-sm text-gray-600 font-light font-display">
+            <p class="text-sm text-gray-600 font-light font-display price">
                   
               {property.sale_price_label || property.rent_price_label}
 
@@ -137,7 +135,7 @@ const properties = Object.keys(data)
           </div>
                                               <!-- Botón "View Property" -->
           <div class="flex items-center justify-between mt-4">
-            <p class="text-xs text-gray-600 font-light font-display">
+            <p class="text-xs text-gray-600 font-light font-display property-id">
               {property.id_property}
             </p>
   
@@ -147,7 +145,7 @@ const properties = Object.keys(data)
                   href={`/property/${property.id_property}`}
                   class="bg-[#60C11C] font-pattern uppercase p-1.5 text-xs rounded-md"
                 >
-                  View Property
+                  Ver propiedad
                 </a>
             </div>
           </div>        
@@ -181,7 +179,7 @@ const properties = Object.keys(data)
 <script is:inline>
   // Configuración de List.js
   var options = {
-    valueNames: ['titulo'], // Clases a buscar
+    valueNames: ['titulo', 'property-id', 'price'], // Clases a buscar
     listClass: 'list', // Clase que contiene los elementos
     searchClass: 'search', // Clase del input de búsqueda
     page: 6,

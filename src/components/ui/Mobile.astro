@@ -3,38 +3,40 @@ import { Icon } from "astro-icon/components";
 
 const navItems = {
   links: [
-    { href: "/buy", text: "Buy" },
-    { href: "/rent", text:"Rent" },
+    { href: "/comprar", text: "Comprar" },
+    { href: "/alquiler", text:"Alquilar" },
     { href: "/blog", text: "Blog" },
   ],
   dropmenu: [
     {
-      title: "Services",
+      title: "Servicios",
       dropdown: [
-        { href: "/property-management", text: "Property Management" },
+        { href: "/gestion-de-propiedades", text: "Gestión de Propiedades" },
        ]
     },
     {
-      title: "About us",
+      title: "Nosotros",
       dropdown: [
-        {href: "/who-we-are" , text: "Who we are"},
-        {href: "/meet-team" , text: "Meet our Team"}
+        {href: "/quienes-somos" , text: "Quiénes somos"},
+        {href: "/nuestro-equipo" , text: "Nuestro Equipo"}
       ]
     },
     {
-      title: "Luxury Concierge",
+      title: "Conserjería de Lujo",
       dropdown: [
-        {href: "/daily-asistance", text: "Daily Asistance"},
-        {href: "", text: "Experiences"},
-        {href: "", text: "Transportation", items: [
-                              {href: "" , text: "Ground"},
-                              {href: "" , text: "Water"}
-                            ]}
+        {href: "/asistencia-diaria", text: "Asistencia diaria"},
+        {href: "/planes-turisticos", text: "Planes turisticos"},
+        {href: "/experiencias", text: "Experiencias"}
       ]
-    }
+    },
+    {
+      title: "Transporte",
+      dropdown: [
+          {href: "/transporte-terrestre" , text: "Terrestre"},
+          {href: "/transporte-nautico" , text: "Nautico"}
+      ]
+    },
   ]
-  
-  
 };
 
 const links = navItems.links;
@@ -42,6 +44,7 @@ const links = navItems.links;
 const dropdowns = navItems.dropmenu[0].dropdown;
 const dropabout = navItems.dropmenu[1].dropdown;
 const dropluxury = navItems.dropmenu[2].dropdown;
+const transportation = navItems.dropmenu[3].dropdown;
 ---
 
 <div x-data="{ openToggle: false }">
@@ -112,6 +115,37 @@ const dropluxury = navItems.dropmenu[2].dropdown;
                   ))}
             </div>
           </div>
+
+
+          <!-- Botón de Transportes con Dropdown -->
+
+          <div x-data="{ DropdownOpen: false }" class="relative">
+        
+            <!-- Botón principal con el título del dropdown -->
+          <button
+              @click="DropdownOpen = !DropdownOpen"
+              type="button"
+              class="relative hover:text-[#60C11C] px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
+                {navItems.dropmenu[3].title}
+                <Icon name="arrow" />
+          </button>
+          
+            <!-- Menú desplegable -->
+            <div 
+              x-show="DropdownOpen" x-transition
+              class="relative">
+                  {transportation.map((item) => (
+                    <a
+                      href={item.href}
+                      class="block px-4 py-2 hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
+                    >
+                      {item.text}
+                    </a>
+                  ))}
+            </div>
+          </div>
+
+
             </div>
         </div>
 
@@ -146,10 +180,10 @@ const dropluxury = navItems.dropmenu[2].dropdown;
       
               <!-- Botón de Contact Us -->
                <a
-                  href="/contact-us"
+                  href="/contacto"
                   class="dark:text-white hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
                 >
-                    Contact us
+                    Contacto
               </a>
     </div>
 </div>

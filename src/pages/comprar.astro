@@ -1,7 +1,6 @@
 ---
-// Importaciones necesarias
+// @ts-nocheck
 import type { The0 } from "../api/[id_property].json";
-import { Icon } from "astro-icon/components";
 import Layout from "../layouts/Layout.astro";
 
 const urlSearch = "https://api.wasi.co/v1/property/search?";
@@ -24,13 +23,13 @@ const properties = Object.keys(data)
 
 ---
 
-<Layout title="For Sale Properties">
+<Layout title="Propiedades en Venta">
     
 
 <section id="properties" class="py-12 pt-32">
   <!-- Título del portafolio -->
   <h2 class="text-center text-xl md:text-3xl font-heading uppercase pt-10 pb-10">
-    For Sale Properties
+    Nuestras Propiedades en Venta
   </h2>
 
   <!-- Filtros y búsqueda -->
@@ -38,8 +37,8 @@ const properties = Object.keys(data)
     <!-- Campo de búsqueda -->
     <input
       type="search"
-      class="search w-full  border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:ring focus:ring-green-500 font-pattern"
-      placeholder="Search by Title"
+      class="search w-full  border border-gray-300 rounded-lg p-2 text-xs focus:outline-none focus:ring focus:ring-green-500 font-pattern"
+      placeholder="Busca por titulo, ID de propiedad o precio"
     />
   </div>
 
@@ -86,7 +85,7 @@ const properties = Object.keys(data)
                       href={`/property/${property.id_property}`}
                       class="bg-[#60C11C] font-pattern uppercase p-1.5 text-xs rounded-md"
                     >
-                      View Property
+                      Ver propiedad
                     </a>
                 </div>
               </div>        

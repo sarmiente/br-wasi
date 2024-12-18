@@ -1,12 +1,12 @@
 ---
 // @ts-nocheck
 import { Icon } from 'astro-icon/components';
-import type { Features } from '../../api/types'; // Define los tipos en un archivo .ts si no existen.
+import type { Features } from '../../api/[id_property].json'; 
 
 const urlGetFeatures = "https://api.wasi.co/v1/feature/all";
 
 const options = {
-  method: 'POST', // Asegúrate de que la API requiere POST; si es GET, cámbialo aquí.
+  method: 'POST', 
   headers: {
     "Content-Type": "application/json; charset=UTF-8",
     Authentication: `Bearer ${import.meta.env.ID_COMPANY}`,
@@ -27,21 +27,17 @@ async function fetchFeature(params: Record<string, string | undefined>) {
 
   try {
     const response = await fetch(
-      `${urlGetFeatures}?id_property=${propertyId}&id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}`,
-      options
+      `${urlGetFeatures}?id_property=${propertyId}&id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}`, options
     );
-
     if (!response.ok) {
       throw new Error(`Error en la solicitud: ${response.statusText}`);
     }
-
     const feature = await response.json();
-    // console.log(feature);
     
-    internal = feature.internal || [];
-    external = feature.external || [];
+      internal = feature.internal || [];
+      external = feature.external || [];
   } catch (error) {
-    console.error("Error al obtener las características:", error);
+      console.error("Error al obtener las características:", error);
   }
 }
 
