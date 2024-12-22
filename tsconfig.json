@@ -1,4 +1,4 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "exclude": ["src/omponents/sections/PropertySwiper.astro"]
+  "exclude": ["src/omponents/sections/PropertySwiper.astro", "src/omponents/PropertyList.astro"]
 }

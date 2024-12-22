@@ -7,24 +7,24 @@ const date = new Date();
 
 const footerData = [
   {
-    title: "About Us",
+    title: "Nosotros",
     items: [
-      { text: "Who we are", href : "/who-we-are" },
-      { text: "Meet the Team", href : "/meet-team" },
+      { text: "Quienes Somos", href : "/quienes-somos" },
+      { text: "Nuestro Equipo", href : "/nuestro-equipo" },
     ],
   },
   {
-    title: "Our Services",
+    title: "Servicios",
     items: [
-      { text: "Property Management", href : "" },
-      { text: "Luxury Concierge", href : "" },
+      { text: "Gestión de Propiedades", href : "/gestion-de-propiedades" },
+      { text: "Conserjería de Lujo", href : "/conserjeria" },
     ],
   },
   {
-    title: "Helpful links",
+    title: "Enlaces útiles",
     items: [
-      { text: "FAQs", href : "" },
-      { text: "Support", href : "" }
+      { text: "PQRs", href : "" },
+      { text: "Soporte", href : "" }
     ],
   },
 ];
@@ -82,7 +82,7 @@ const footerData = [
 
       <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
         <div class="text-center sm:text-left">
-          <p class="text-lg uppercase font-pattern text-gray-900">About Us</p>
+          <p class="text-lg uppercase font-pattern text-gray-900">Nosotros</p>
 
           <ul class="mt-8 space-y-4 text-sm">
            {
@@ -99,7 +99,7 @@ const footerData = [
         </div>
 
         <div class="text-center sm:text-left">
-          <p class="text-lg uppercase font-pattern text-gray-900">Our Services</p>
+          <p class="text-lg uppercase font-pattern text-gray-900">Servicios</p>
 
           <ul class="mt-8 space-y-4 text-sm">
             {
@@ -115,7 +115,7 @@ const footerData = [
         </div>
 
         <div class="text-center sm:text-left">
-          <p class="text-lg uppercase font-pattern text-gray-900">Helpful Links</p>
+          <p class="text-lg uppercase font-pattern text-gray-900">Enlaces útiles</p>
 
           <ul class="mt-8 space-y-4 text-sm">
             {
@@ -133,7 +133,7 @@ const footerData = [
         </div>
 
         <div class="text-center sm:text-left">
-          <p class="text-lg uppercase font-pattern text-gray-900">Contact Us</p>
+          <p class="text-lg uppercase font-pattern text-gray-900">Contacto</p>
 
           <ul class="mt-8 space-y-4 text-sm">
            
@@ -190,7 +190,7 @@ const footerData = [
             class="inline-block font-pattern text-[#60C11C] transition hover:text-[#000080]"
             href="/terms-and-conditions"
           >
-            Terms & Conditions
+            Terminos y condiciones
           </a>
 
           <span>&middot;</span>
@@ -199,11 +199,11 @@ const footerData = [
             class="inline-block font-pattern text-[#60C11C] transition hover:text-[#000080]"
             href="/privacy-policy"
           >
-            Privacy Policy
+            Politica de privacidad
           </a>
         </p>
         
-        <p class="mt-4 text-sm font-pattern text-gray-500 sm:order-first sm:mt-0">BR SOLUTIONS &copy; {date.getFullYear()}. All rights reserved. </p>
+        <p class="mt-4 text-sm font-pattern text-gray-500 sm:order-first sm:mt-0">BR SOLUTIONS &copy; {date.getFullYear()}. Todos los derechos reservados. </p>
       </div>
     </div>
   </div>

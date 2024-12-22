@@ -1,10 +1,9 @@
 ---
-// Importaciones necesarias
-import type { The0 } from "../api/[id_property].json";
+// @ts-nocheck
+import type { The0 } from "@api/[id_property].json";
 
 const urlSearch = "https://api.wasi.co/v1/property/search?";
 const take = 100;
-
 
 const res = await fetch(`${urlSearch}id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}&take=${take}&order_by=title`, {
   method: "POST",
@@ -19,9 +18,10 @@ const data = await res.json();
 const properties = Object.keys(data)
   .filter(key => key !== 'total' && key !== 'status')
   .map(key => data[key]);
-  
+
+
 ---
-<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
 
 <section id="properties" class="py-12">
   <!-- Título del portafolio -->
@@ -106,7 +106,7 @@ const properties = Object.keys(data)
   <!-- Cada propiedad -->
   {properties.map((property: The0) => (
     <div class="rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-      <a href={`/property/${property.id_property}`} class="block">
+      <a href={`/propiedad/${property.id_property}`} class="block">
         <!-- Imagen de la propiedad -->
         <div class="relative">
           <img
@@ -127,9 +127,16 @@ const properties = Object.keys(data)
             <h2 class="titulo text-lg font-medium font-heading text-gray-800 uppercase truncate">
               {property.title}
             </h2>
-            <p class="text-sm text-gray-600 font-light font-display price">
+            <p class="text-sm text-gray-600 font-light font-display price uppercase ">
                   
-              {property.sale_price_label || property.rent_price_label}
+              {
+                property.for_sale === 'true' && property.sale_price_label && property.sale_price_label !== 0 ? (
+                  <span>Precio de venta: {property.sale_price_label}</span>
+                ) : property.for_rent === 'true' && property.rent_price_label && property.rent_price_label !== 0 ? (
+                  <span>Precio de renta: {property.rent_price_label}</span>
+                ) : null
+              }
+              
 
             </p>
           </div>
@@ -142,7 +149,7 @@ const properties = Object.keys(data)
                                               <!-- Botón "View Property" -->
             <div class="w-1/2 flex justify-end">
                 <a
-                  href={`/property/${property.id_property}`}
+                  href={`/propiedad/${property.id_property}`}
                   class="bg-[#60C11C] font-pattern uppercase p-1.5 text-xs rounded-md"
                 >
                   Ver propiedad
@@ -164,7 +171,7 @@ const properties = Object.keys(data)
     <div class="inline-flex items-center justify-center gap-3">
       
     
-      <ul class="pagination flex gap-4 font-display font-light"></ul>
+      <ul class="pagination flex gap-4 font-display font-light "></ul>
     
       
     </div>

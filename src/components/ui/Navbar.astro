@@ -55,16 +55,15 @@ const transportation = navItems.dropmenu[3].dropdown;
 
       <!-- Logo - Izquierda en Desktop y Mobile -->
       <a href="/" class="flex-shrink-0">
-        <img width="50" height="50" src="/favicon.svg" alt="Logo" />
+        <img width="50" height="50" src="/favicon.svg" alt="Logo BR Solutions" />
       </a>
 
       <!-- Menú de navegación - Centro en Desktop -->
       <div class="hidden md:flex md:flex-1 justify-center space-x-4">
         {links.map((item) => (
-          <a
-            
+          <a            
             href={item.href}
-            class="dark:text-white hover:text-[#60C11C] font-pattern px-3 py-2 rounded-md text-sm font-light uppercase"
+            class="dark:text-white hover:text-[#60C11C]  font-pattern px-3 py-2 rounded-md text-sm font-light uppercase"
           >
             {item.text}
           </a>
@@ -94,13 +93,13 @@ const transportation = navItems.dropmenu[3].dropdown;
             ))}
 
 
-        <!-- Botón de LUXURY con Dropdown -->
+        <!-- Boton Dropdown de Conserjeria -->
 
-        <div x-data="{ DropdownOpen: false }" class="relative">
+        <div x-data="dropdown" class="relative" @click.away="open = false" @mouseleave="open = false">
         
           <!-- Botón principal con el título del dropdown -->
         <button
-            @click="DropdownOpen = !DropdownOpen"
+            @click="toggle"
             type="button"
             class="relative hover:text-[#60C11C] px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
               {navItems.dropmenu[2].title}
@@ -109,7 +108,7 @@ const transportation = navItems.dropmenu[3].dropdown;
         
           <!-- Menú desplegable -->
           <div 
-            x-show="DropdownOpen" x-transition
+            x-show="open" x-transition.duration.400ms
             class="relative">
                 {dropluxury.map((item) => (
                   <a
@@ -123,13 +122,13 @@ const transportation = navItems.dropmenu[3].dropdown;
         </div>
 
 
-          <!-- Botón de Transportes con Dropdown -->
+            <!-- Botón de Transportes con Dropdown -->
 
-          <div x-data="{ DropdownOpen: false }" class="relative">
+          <div x-data="dropdown" class="relative" @click.away="open = false" @mouseleave="open = false">
         
             <!-- Botón principal con el título del dropdown -->
           <button
-              @click="DropdownOpen = !DropdownOpen"
+              @click="toggle"
               type="button"
               class="relative hover:text-[#60C11C] px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
                 {navItems.dropmenu[3].title}
@@ -138,7 +137,7 @@ const transportation = navItems.dropmenu[3].dropdown;
           
             <!-- Menú desplegable -->
             <div 
-              x-show="DropdownOpen" x-transition
+              x-show="open" x-transition.duration.400ms
               class="relative">
                   {transportation.map((item) => (
                     <a
@@ -199,3 +198,16 @@ const transportation = navItems.dropmenu[3].dropdown;
     </div>
   </div>
 </nav>
+
+
+<script is:inline>
+  document.addEventListener('alpine:init', () => {
+      Alpine.data('dropdown', () => ({
+          open: false,
+
+          toggle() {
+              this.open = ! this.open
+          },
+      }))
+  })
+</script>

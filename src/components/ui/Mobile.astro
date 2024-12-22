@@ -58,7 +58,7 @@ const transportation = navItems.dropmenu[3].dropdown;
     </div>
 
     <!-- Menú móvil -->
-    <div x-show="openToggle" class="flex flex-col mt-16 lg:hidden absolute top-4 left-0 bg-white dark:bg-slate-800 z-50 w-full items-center gap-10 py-15 pb-10" @click.away="openToggle = false">
+    <div x-show="openToggle"  class="flex flex-col mt-16 lg:hidden absolute top-4 left-0 bg-white dark:bg-slate-800 z-50 w-full items-center gap-10 py-15 pb-10" @click.away="openToggle = false">
         {links.map(({ href, text}) => (
             <a
                 class="dark:text-white hover:text-[#60C11C] font-pattern px-3 py-2 rounded-md text-sm font-light uppercase"
@@ -69,15 +69,16 @@ const transportation = navItems.dropmenu[3].dropdown;
         ))}
 
         <!-- Dropdown para Móvil -->
-        <div x-data="{ DropdownOpen: false }" class="w-full text-center">
+        <div x-data="dropdown" class="w-full text-center">
+
             <button
                 class="dark:text-white hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
-                @click="DropdownOpen = !DropdownOpen"
+                @click="toggle"
             >
-            {navItems.dropmenu[0].title}
-            <Icon name="arrow" />
+                                {navItems.dropmenu[0].title}<Icon name="arrow" />
             </button>
-            <div x-show="DropdownOpen" class="flex flex-col items-center mt-2" @click.away="DropdownOpen = false">
+
+            <div x-show="open" x-transition.duration.400ms class="flex flex-col items-center mt-2" >
                 {dropdowns.map(({ href, text }) => (
                     <a
                     
@@ -90,21 +91,19 @@ const transportation = navItems.dropmenu[3].dropdown;
                 ))}
                   <!-- Botón de LUXURY con Dropdown -->
 
-        <div x-data="{ DropdownOpen: false }" class="relative">
+        <div x-data="dropdown" class="relative" @click.away="open = false">
         
             <!-- Botón principal con el título del dropdown -->
           <button
-              @click="DropdownOpen = !DropdownOpen"
-              type="button"
-              class="relative hover:text-[#60C11C] px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
-                {navItems.dropmenu[2].title}
-                <Icon name="arrow" />
+                @click="toggle"
+                type="button"
+                class="relative hover:text-[#60C11C] px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
+                                        {navItems.dropmenu[2].title} <Icon name="arrow" />
           </button>
           
             <!-- Menú desplegable -->
             <div 
-              x-show="DropdownOpen" x-transition
-              class="relative">
+              x-show="open" x-transition.duration.400ms class="relative">
                   {dropluxury.map((item) => (
                     <a
                       href={item.href}
@@ -119,11 +118,11 @@ const transportation = navItems.dropmenu[3].dropdown;
 
           <!-- Botón de Transportes con Dropdown -->
 
-          <div x-data="{ DropdownOpen: false }" class="relative">
+          <div x-data="dropdown" class="relative" @click.away="open = false">
         
             <!-- Botón principal con el título del dropdown -->
           <button
-              @click="DropdownOpen = !DropdownOpen"
+              @click="toggle"
               type="button"
               class="relative hover:text-[#60C11C] px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
                 {navItems.dropmenu[3].title}
@@ -132,7 +131,7 @@ const transportation = navItems.dropmenu[3].dropdown;
           
             <!-- Menú desplegable -->
             <div 
-              x-show="DropdownOpen" x-transition
+              x-show="open" x-transition.duration.400ms
               class="relative">
                   {transportation.map((item) => (
                     <a
@@ -151,19 +150,18 @@ const transportation = navItems.dropmenu[3].dropdown;
 
 
             <!-- Botón de About con Dropdown -->
-            <div x-data="{ aboutToggle: false }" class="text-center">
-                <!-- Botón principal con el título del dropdown -->
-                  <!-- Botón principal con el título del dropdown -->
+            <div x-data="dropdown" class="text-center">
+                           
           <button
-           @click="aboutToggle = ! aboutToggle"
-          type="button"
-          class="relative hover:text-[#60C11C] px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-center">
-          {navItems.dropmenu[1].title}
+            @click="toggle"
+            type="button"
+            class="relative hover:text-[#60C11C] px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-center">
+                      {navItems.dropmenu[1].title}
             <Icon name="arrow" />
-      </button>
+          </button>
            <!-- Menú desplegable -->
            <div 
-           x-show="aboutToggle" x-transition
+           x-show="open" x-transition.duration.400ms
            class="relative">
            {dropabout.map((item) => (
             <a
@@ -187,3 +185,18 @@ const transportation = navItems.dropmenu[3].dropdown;
               </a>
     </div>
 </div>
+
+
+
+
+<script is:inline>
+  document.addEventListener('alpine:init', () => {
+      Alpine.data('dropdown', () => ({
+          open: false,
+
+          toggle() {
+              this.open = ! this.open
+          },
+      }))
+  })
+</script>
