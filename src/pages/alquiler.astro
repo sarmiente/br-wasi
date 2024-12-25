@@ -10,7 +10,7 @@ const options = {
       Authentication: `Bearer ${import.meta.env.ID_COMPANY}`,
     }};
 
-const res = await fetch(`${urlSearch}id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}&for_rent=true&order_by=title&take=100`, options);
+const res = await fetch(`${urlSearch}id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}&for_rent=true&take=100`, options);
 
 const data = await res.json();
 
@@ -43,7 +43,7 @@ const properties = Object.keys(data)
   <!-- Cada propiedad -->
   {properties.map((property: The0) => (
     <div class="rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-      <a href={`/property/${property.id_property}`} class="block">
+      <a href={`/propriedad/${property.id_property}`} class="block">
         <!-- Imagen de la propiedad -->
         <div class="relative">
           <img
@@ -77,7 +77,7 @@ const properties = Object.keys(data)
                                               <!-- Botón "Ver propiedades" -->
             <div class="w-1/2 flex justify-end">
                 <a
-                  href={`/property/${property.id_property}`}
+                  href={`/propiedad/${property.id_property}`}
                   class="bg-[#60C11C] font-pattern uppercase p-1.5 text-xs rounded-md"
                 >
                   Ver propiedad

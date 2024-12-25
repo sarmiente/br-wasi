@@ -1,5 +1,5 @@
 ---
-// @ts-nocheck
+
 import type { The0 } from "../api/[id_property].json";
 import Layout from "../layouts/Layout.astro";
 
@@ -12,6 +12,7 @@ const options = {
     }
 };
 
+
 const res = await fetch(`${urlSearch}id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}&take=100&for_sale=true`, options);
 
 const data = await res.json();
@@ -23,7 +24,7 @@ const properties = Object.keys(data)
 
 ---
 
-<Layout title={`Propiedades en Venta - ${property.title}`}>
+<Layout title="Propiedades en Venta">
     
 
 <section id="properties" class="py-12 pt-32">
