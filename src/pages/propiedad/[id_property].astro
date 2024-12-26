@@ -1,10 +1,11 @@
 ---
-import { changeLanguage } from "i18next";
 // @ts-nocheck
+import { changeLanguage } from "i18next";
 import FeaturesList from "../../components/sections/FeaturesList.astro";
 import PropertySwiper from "../../components/sections/PropertySwiper.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
+import { t } from "i18next";
 
 changeLanguage("es");
 
@@ -106,11 +107,12 @@ let galleries = property.galleries;
             
               {
                 property.for_sale === 'true' && property.sale_price_label && property.sale_price_label !== 0 ? (
-                  <span>Precio de venta: {property.sale_price_label}</span>
+                  <span>{t("proplist.sale-price")} {property.sale_price_label}</span>
                 ) : property.for_rent === 'true' && property.rent_price_label && property.rent_price_label !== 0 ? (
-                  <span>Precio de renta: {property.rent_price_label}</span>
+                  <span>{t("proplist.rent-price")}  {property.rent_price_label}</span>
                 ) : null
               }
+              
               
               
             </p>

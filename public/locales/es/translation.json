@@ -22,6 +22,8 @@
         "links": "Enlaces útiles",
         "msg": "Tu hogar lejos de casa",
         "terms": "Términos y Condiciones",
+        "accept": "Acepto",
+        "for": "para el procesamiento de datos personales",
         "privacy": "Política de Privacidad",
         "pqrs": "PQRS",
         "support": "Soporte",
@@ -34,5 +36,31 @@
         "rent-price": "Precio de alquiler",
         "btn": "Ver propiedad",
         "search": "Busca por titulo, ID de propiedad o precio"
-    }
+    },
+    "cta":{
+        "title": "Sé el primero en enterarte",
+        "title-01": "de nuestras actualizaciones!",
+        "desc": "Suscríbete para recibir noticias, ofertas y contenido exclusivo directamente en tu bandeja de entrada.",
+        "desc-01": "Regístrate para recibir actualizaciones",
+        "btn": "Regístrar",
+        "name": "Nombre",
+        "lastname": "Apellido",
+        "phone": "Teléfono",
+        "msg-label": "Mensaje",
+        "mail": "Correo electrónico",
+        "msg": "Respetamos tu privacidad. Puedes darte de baja en cualquier momento."
+    },
+    "centered": {
+        "title": "Quiénes somos",
+        "desc": "Construyendo un legado visionario en el futuro de la excelencia en propiedad."
+    },
+    "testimonials": {
+        "title": "Testimonios de Nuestros Clientes"
+    },
+    "contact": {
+    "title": "Déjanos un mensaje",
+    "desc": "Hagamos algo grandioso juntos. Contáctanos hoy.",
+    "btn": "Enviar"
+}
+
 }

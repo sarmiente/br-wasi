@@ -1,5 +1,5 @@
 ---
-
+import { t } from "i18next";
 ---
 
 
@@ -7,10 +7,10 @@
 <div class="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
     <form action="#" class="space-y-4">
       <div>
-        <label class="sr-only" for="name">Name</label>
+        <label class="sr-only" for="name">{t("cta.name")}</label>
         <input
           class="w-full rounded-lg border-gray-200 p-3 text-sm"
-          placeholder="Name"
+          placeholder={t("cta.name")}
           type="text"
           id="name"
         />
@@ -18,20 +18,20 @@
 
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label class="sr-only" for="email">Email</label>
+          <label class="sr-only" for="email">{t("cta.mail")}</label>
           <input
             class="w-full rounded-lg border-gray-200 p-3 text-sm"
-            placeholder="Email address"
+            placeholder={t("cta.mail")}
             type="email"
             id="email"
           />
         </div>
 
         <div>
-          <label class="sr-only" for="phone">Phone</label>
+          <label class="sr-only" for="phone">{t("cta.phone")}</label>
           <input
             class="w-full rounded-lg border-gray-200 p-3 text-sm"
-            placeholder="Phone Number"
+            placeholder={t("cta.phone")}
             type="tel"
             id="phone"
           />
@@ -41,25 +41,25 @@
   
 
       <div>
-        <label class="sr-only" for="message">Message</label>
+        <label class="sr-only" for="message">{t("cta.msg-label")}</label>
 
         <textarea
           class="w-full rounded-lg border-gray-200 p-3 text-sm"
-          placeholder="Message"
+          placeholder={t("cta.msg-label")}
           rows="4"
           id="message"
         ></textarea>
       </div>
       <label class="font-pattern">
           <input type="checkbox" class="accent-[#60C11C] focus:accent-[#60C11C]"> 
-          I accept <span class="font-medium">terms & conditions</span> for processing personal data
+          {t("nav.accept")} <span class="font-medium">{t("nav.terms")}</span> {t("nav.for")}
         </label>
       <div class="mt-4">
         <button
           type="submit"
           class="inline-block w-full rounded-lg bg-[#60C11C] px-5 py-3 font-medium text-white sm:w-auto"
         >
-          Submit
+        {t("contact.btn")}
         </button>
       </div>
     </form>

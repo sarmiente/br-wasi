@@ -22,6 +22,8 @@
         "links": "Useful Links",
         "msg": "Your home away home",
         "terms": "Terms & Conditions",
+        "accept": "I accept",
+        "for": "for processing personal data",
         "privacy": "Privacy Policy",
         "pqrs": "Q&A",
         "support": "Support",
@@ -35,5 +37,31 @@
         "btn": "View Property",
         "search": "Search by title, property ID, or price."
 
-    }
+    },
+    "cta": {
+        "title": "Be the first to know",
+        "title-01": "about our updates!",
+        "desc": "Subscribe to receive news, offers, and exclusive content directly in your inbox.",
+        "desc-01": "Sign up to receive updates",
+        "btn": "Sign up",
+        "name": "First Name",
+        "lastname": "Last Name",
+        "phone": "Cellphone",
+        "msg-label": "Message",
+        "mail": "Email Address",
+        "msg": "We respect your privacy. You can unsubscribe at any time."
+},
+"centered": {
+    "title": "Who We Are",
+    "desc": "Building a visionary legacy in the future of property excellence."
+},
+"testimonials": {
+    "title": "Customer Testimonials"
+},
+"contact": {
+    "title": "Leave us a message",
+    "desc": "Let's do something great together. Contact us today.",
+    "btn": "Submit"
+}
+
 }
