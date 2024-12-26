@@ -1,0 +1,38 @@
+{
+    "nav": {
+        "buy": "Comprar",
+        "rent": "Alquilar",
+        "services": "Servicios",
+        "manage": "Gestión de Propiedades",
+        "manage-desc": "Optimiza el valor de tus inmuebles con nuestra gestión integral y personalizada.",
+        "concierge" : "Conserjería de Lujo",
+        "concierge-desc": "Disfruta de experiencias exclusivas y personalizadas con nuestro servicio de conserjería de lujo.",
+        "short": "Alquileres a corto plazo",
+        "short-desc": "Descubre nuestra exclusiva colección de apartamentos y casas de alquiler a corto plazo, diseñadas especialmente para ti.",
+        "daily": "Asistencia diaria",
+        "tourist": "Planes turisticos",
+        "experiences": "Experiencias",
+        "transport": "Transporte",
+        "land": "Terrestre",
+        "nautical": "Nautico",
+        "about": "Nosotros",
+        "who-we-are": "Quiénes Somos",
+        "our-team": "Nuestro Equipo",
+        "contact": "Contacto",
+        "links": "Enlaces útiles",
+        "msg": "Tu hogar lejos de casa",
+        "terms": "Términos y Condiciones",
+        "privacy": "Política de Privacidad",
+        "pqrs": "PQRS",
+        "support": "Soporte",
+        "rights": "Todos los derechos reservados",
+        "more": "Saber más"
+    },
+    "proplist": {
+        "title" : "Explora nuestro portafolio de propiedades",
+        "sale-price": "Precio de venta",
+        "rent-price": "Precio de alquiler",
+        "btn": "Ver propiedad",
+        "search": "Busca por titulo, ID de propiedad o precio"
+    }
+}

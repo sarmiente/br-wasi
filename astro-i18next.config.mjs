@@ -1,0 +1,42 @@
+{/*import type { AstroI18nextConfig } from "astro-i18next"; */}
+
+export default  {
+    defaultLocale: "es",
+    locales: ["es", "en"],
+    routes: {
+      es: {
+        "comprar": "comprar",
+        "alquiler": "alquiler",
+        "blog" : "blog",
+        "gestion-de-propiedades": "gestion-de-propiedades",
+        "asistencia-diaria": "asistencia-diaria",
+        "conserjeria-de-lujo": "conserjeria-de-lujo",
+        "planes-turisticos": "planes-turisticos",
+        "experiencias": "experiencias",
+        "transporte-terrestre": "transporte-terrestre",
+        "transporte-nautico": "transporte-nautico",
+        "quienes-somos": "quienes-somos",
+        "nuestro-equipo": "nuestro-equipo",
+        "contacto": "contacto",
+        "politica-de-privacidad": "politica-de-privacidad",
+        "terminos-y-condiciones" : "terminos-y-condiciones",        
+      },
+      en: {
+        "comprar": "buy",
+        "alquiler": "rent",
+        "blog" : "blog",
+        "gestion-de-propiedades": "property-management",
+        "asistencia-diaria": "daily-assistance",
+        "conserjeria-de-lujo": "luxury-concierge",
+        "planes-turisticos": "tourist-plans",
+        "experiencias": "experiences",
+        "transporte-terrestre": "land-transport",
+        "transporte-nautico": "nautical-transport",
+        "quienes-somos": "who-we-are",
+        "nuestro-equipo": "meet-our-team",
+        "contacto": "contact",
+        "politica-de-privacidad": "privacy-policy",
+        "terminos-y-condiciones" : "terms-and-conditions",
+      },      
+    },
+  };

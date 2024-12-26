@@ -1,12 +1,14 @@
 ---
-import { changeLanguage } from "i18next";
 // @ts-nocheck
-import FeaturesList from "../../components/sections/FeaturesList.astro";
-import PropertySwiper from "../../components/sections/PropertySwiper.astro";
-import Layout from "../../layouts/Layout.astro";
-import { Icon } from "astro-icon/components";
+import { changeLanguage } from "i18next";
 
-changeLanguage("es");
+import FeaturesList from "../../../components/sections/FeaturesList.astro";
+import PropertySwiper from "../../../components/sections/PropertySwiper.astro";
+import Layout from "../../../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+import { t } from "i18next";
+
+changeLanguage("en");
 
 const urlGetProperty = "https://api.wasi.co/v1/property/get/";
 const options = {
@@ -42,16 +44,13 @@ let galleries = property.galleries;
       */}
   
     {property ? (
-                  <div class="mx-auto max-w-6xl px-6 md:px-4">
+                  <div class="mx-auto max-w-5xl px-6 md:px-4">
                       <div class="mt-12">                           
                           <h2 class="text-2xl font-heading uppercase text-gray-900 sm:text-4xl lg:text-5xl pb-5">{property.title}</h2>                
                           <p class="text-md tracking-wide uppercase font-pattern dark:text-zinc-300"> {property.city_label}</p>
                           <p class="text-sm tracking-wide uppercase font-pattern text-zinc-700 dark:text-zinc-300"> {property.zone_label}</p>
                       </div>
                   
-                      {/*
-                      <p class="mt-8 text-sm text-zinc-600 dark:text-zinc-200 sm:w-2/3 xl:w-1/2 capitalize font-pattern">{property.address}</p>
-                      */}
                   </div>
                   <PropertySwiper />
                   
@@ -106,9 +105,9 @@ let galleries = property.galleries;
             
               {
                 property.for_sale === 'true' && property.sale_price_label && property.sale_price_label !== 0 ? (
-                  <span>Precio de venta: {property.sale_price_label}</span>
+                  <span>{t("proplist.sale-price")} {property.sale_price_label}</span>
                 ) : property.for_rent === 'true' && property.rent_price_label && property.rent_price_label !== 0 ? (
-                  <span>Precio de renta: {property.rent_price_label}</span>
+                  <span>{t("proplist.rent-price")}  {property.rent_price_label}</span>
                 ) : null
               }
               

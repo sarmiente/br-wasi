@@ -10,6 +10,17 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
+  image: {
+    remotePatterns: [{ protocol: "https" }],
+  },
   adapter: netlify(),
-  integrations: [tailwind(), icon(), mdx(), react(), sitemap(), astroI18next() ],
+  integrations: [tailwind(), icon(), mdx(), react(), sitemap({
+    i18n: {
+      defaultLocale: "es", 
+      locales: {
+        en: "en", 
+        es: "es",
+      },
+    },
+  }), astroI18next() ],
 });

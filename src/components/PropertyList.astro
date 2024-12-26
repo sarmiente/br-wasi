@@ -1,5 +1,8 @@
 ---
 // @ts-nocheck
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+
 import type { The0 } from "@api/[id_property].json";
 
 const urlSearch = "https://api.wasi.co/v1/property/search?";
@@ -26,7 +29,7 @@ const properties = Object.keys(data)
 <section id="properties" class="py-12">
   <!-- Título del portafolio -->
   <h2 class="text-center text-xl md:text-3xl font-heading uppercase pt-10 pb-10">
-    Explora nuestro portafolio de propiedades
+    {t("proplist.title")}
   </h2>
 
   <!-- Filtros y búsqueda -->
@@ -35,7 +38,7 @@ const properties = Object.keys(data)
     <input
       type="search"
       class="search w-full  border border-gray-300 rounded-lg p-2 text-xs focus:outline-none focus:ring focus:ring-green-500 font-pattern"
-      placeholder="Busca por titulo, ID de propiedad o precio" />
+      placeholder={t("proplist.search")} />
 
     <!-- Filtro de precio 
     <div x-data="{ isOpen: false }" class="w-full md:w-1/2 relative border border-gray-300 rounded-lg shadow-md bg-white">
@@ -131,9 +134,9 @@ const properties = Object.keys(data)
                   
               {
                 property.for_sale === 'true' && property.sale_price_label && property.sale_price_label !== 0 ? (
-                  <span>Precio de venta: {property.sale_price_label}</span>
+                  <span>{t("proplist.sale-price")} {property.sale_price_label}</span>
                 ) : property.for_rent === 'true' && property.rent_price_label && property.rent_price_label !== 0 ? (
-                  <span>Precio de renta: {property.rent_price_label}</span>
+                  <span>{t("proplist.rent-price")} {property.rent_price_label}</span>
                 ) : null
               }
               
@@ -149,10 +152,10 @@ const properties = Object.keys(data)
                                               <!-- Botón "View Property" -->
             <div class="w-1/2 flex justify-end">
                 <a
-                  href={`/propiedad/${property.id_property}`}
+                  href={localizePath(`/propiedad/${property.id_property}`)}
                   class="bg-[#60C11C] font-pattern uppercase p-1.5 text-xs rounded-md"
                 >
-                  Ver propiedad
+                  {t("proplist.btn")}
                 </a>
             </div>
           </div>        

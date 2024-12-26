@@ -1,11 +1,12 @@
 ---
+import { changeLanguage } from "i18next";
 // @ts-nocheck
 import Layout from "@layouts/Layout.astro";
 
-
+changeLanguage("en");
 ---
 
-<Layout title="Conserjeria">
+<Layout title="Gestion de Propiedades">
     <section class="dark:bg-slate-800 bg-gray-50 lg:pt-24">
         <div class="mx-auto max-w-screen-xl px-4 py-32 lg:py-16">
           <!-- Imagen destacada -->
@@ -20,7 +21,7 @@ import Layout from "@layouts/Layout.astro";
   
           <!-- Título y detalles del post -->
           <div class="text-center mb-12">
-            <h1 class="text-2xl lg:text-4xl font-heading mb-4 text-gray-900 dark:text-white">Conserjeria de Lujo</h1>
+            <h1 class="text-2xl lg:text-4xl font-heading mb-4 text-gray-900 dark:text-white">Gestión de Propiedades</h1>
             
           </div>
     
@@ -30,5 +31,4 @@ import Layout from "@layouts/Layout.astro";
           </article>
         </div>
       </section>
-
 </Layout>

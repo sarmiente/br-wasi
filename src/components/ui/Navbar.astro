@@ -2,40 +2,42 @@
 // @ts-nocheck
 import { Icon } from "astro-icon/components";
 import Mobile from "./Mobile.astro";
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
 
 const navItems = {
   links: [
-    { href: "/comprar", text: "Comprar" },
-    { href: "/alquiler", text:"Alquilar" },
-    { href: "/blog", text: "Blog" },
+    { href: localizePath("/comprar"), text: t("nav.buy") },
+    { href: localizePath("/alquiler"), text: t("nav.rent") },
+    { href: localizePath("/blog"), text: "Blog" },
   ],
   dropmenu: [
     {
-      title: "Servicios",
+      title: t("nav.services"),
       dropdown: [
-        { href: "/gestion-de-propiedades", text: "Gestión de Propiedades" },
+        { href: localizePath("/gestion-de-propiedades"), text: t("nav.manage") },
        ]
     },
     {
-      title: "Nosotros",
+      title: t("nav.about"),
       dropdown: [
-        {href: "/quienes-somos" , text: "Quiénes somos"},
-        {href: "/nuestro-equipo" , text: "Nuestro Equipo"}
+        {href: localizePath("/quienes-somos") , text: t("nav.who-we-are") },
+        {href: localizePath("/nuestro-equipo") , text: t("nav.our-team") },
       ]
     },
     {
-      title: "Conserjería de Lujo",
+      title: t("nav.concierge"),
       dropdown: [
-        {href: "/asistencia-diaria", text: "Asistencia diaria"},
-        {href: "/planes-turisticos", text: "Planes turisticos"},
-        {href: "/experiencias", text: "Experiencias"}
+        {href: localizePath("/asistencia-diaria"), text: t("daily-assistance") },
+        {href: localizePath("/planes-turisticos"), text: t("nav.tourist")},
+        {href: localizePath("/experiencias"), text: t("nav.experiences")},
       ]
     },
     {
-      title: "Transporte",
+      title: t("nav.transport"),
       dropdown: [
-          {href: "/transporte-terrestre" , text: "Terrestre"},
-          {href: "/transporte-nautico" , text: "Nautico"}
+          {href: localizePath("/transporte-terrestre") , text: t("nav.land")},
+          {href: localizePath("/transporte-nautico") , text: t("nav.nautical")},
       ]
     },
   ]
@@ -54,7 +56,7 @@ const transportation = navItems.dropmenu[3].dropdown;
     <div class="flex items-center justify-between">
 
       <!-- Logo - Izquierda en Desktop y Mobile -->
-      <a href="/" class="flex-shrink-0">
+      <a href={localizePath("/")} class="flex-shrink-0">
         <img width="50" height="50" src="/favicon.svg" alt="Logo BR Solutions" />
       </a>
 
@@ -142,7 +144,7 @@ const transportation = navItems.dropmenu[3].dropdown;
                   {transportation.map((item) => (
                     <a
                       href={item.href}
-                      class="px-4 py-2 hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
+                      class="block px-4 py-2 hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
                     >
                       {item.text}
                     </a>
@@ -181,10 +183,10 @@ const transportation = navItems.dropmenu[3].dropdown;
 
         <!-- Botón de Contact Us -->
          <a
-            href="/contacto"
+            href={localizePath("/contacto")}
             class="dark:text-white hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
           >
-              Contacto
+              {t("nav.contact")}
         </a>
        
       </div>

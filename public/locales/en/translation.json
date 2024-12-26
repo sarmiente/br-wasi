@@ -1,0 +1,39 @@
+{
+    "nav": {
+        "buy": "Buy",
+        "rent": "Rent",
+        "services": "Services",
+        "manage": "Property Management",
+        "manage-desc": "Optimize the value of your properties with our comprehensive and personalized management.",
+        "concierge" : "Luxury Concierge",
+        "concierge-desc": "Enjoy exclusive and personalized experiences with our luxury concierge service.",
+        "short": "Short Term Rentals",
+        "short-desc": "Discover our exclusive collection of short-term rental apartments and houses, specially designed for you.",
+        "daily": "Daily Assistance",
+        "tourist": "Tourist Plans",
+        "experiences": "Experiences",
+        "transport": "Transportation",
+        "land": "Land",
+        "nautical": "Nautical",
+        "about": "About Us",
+        "who-we-are": "Who We Are",
+        "our-team": "Our Team",
+        "contact": "Contact",
+        "links": "Useful Links",
+        "msg": "Your home away home",
+        "terms": "Terms & Conditions",
+        "privacy": "Privacy Policy",
+        "pqrs": "Q&A",
+        "support": "Support",
+        "rights": "All rights reserved",
+        "more": "Learn More"
+    },
+    "proplist": {
+        "title" : "Explore our property portfolio.",
+        "sale-price": "Selling price",
+        "rent-price": "Rental price",
+        "btn": "View Property",
+        "search": "Search by title, property ID, or price."
+
+    }
+}

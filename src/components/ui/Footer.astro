@@ -1,30 +1,33 @@
 ---
+// @ts-nocheck
 import Logo from "../../icons/br_logo.svg"
 import Image from "astro/components/Image.astro";
 import { Icon } from "astro-icon/components";
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
 
 const date = new Date();
 
 const footerData = [
   {
-    title: "Nosotros",
+    title: t("nav.about"),
     items: [
-      { text: "Quienes Somos", href : "/quienes-somos" },
-      { text: "Nuestro Equipo", href : "/nuestro-equipo" },
+      { text: t("nav.who-we-are"), href : localizePath("/quienes-somos") },
+      { text: t("nav.our-team"), href : localizePath("/nuestro-equipo") },
     ],
   },
   {
     title: "Servicios",
     items: [
-      { text: "Gestión de Propiedades", href : "/gestion-de-propiedades" },
-      { text: "Conserjería de Lujo", href : "/conserjeria" },
+      { text: t("nav.manage"), href : localizePath("/gestion-de-propiedades") },
+      { text: t("nav.concierge"), href : localizePath("/conserjeria-de-lujo") },
     ],
   },
   {
     title: "Enlaces útiles",
     items: [
-      { text: "PQRs", href : "" },
-      { text: "Soporte", href : "" }
+      { text: t("nav.pqrs"), href : "#" },
+      { text: t("nav.support"), href : "#" }
     ],
   },
 ];
@@ -35,13 +38,13 @@ const footerData = [
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
         <div class="flex justify-center text-teal-600 sm:justify-start">
-          <a href="/">
+          <a href={localizePath("/")}>
             <Image src={Logo} alt="" width={100}/>
           </a>
         </div>
 
         <p class="mt-6 max-w-md text-center font-pattern leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
-         Your home away home
+         {t("nav.msg")}
         </p>
 
         <ul class="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
@@ -74,7 +77,7 @@ const footerData = [
 
       <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
         <div class="text-center sm:text-left">
-          <p class="text-lg uppercase font-pattern text-gray-900">Nosotros</p>
+          <p class="text-lg uppercase font-pattern text-gray-900">{t("nav.about")}</p>
 
           <ul class="mt-8 space-y-4 text-sm">
            {
@@ -91,7 +94,7 @@ const footerData = [
         </div>
 
         <div class="text-center sm:text-left">
-          <p class="text-lg uppercase font-pattern text-gray-900">Servicios</p>
+          <p class="text-lg uppercase font-pattern text-gray-900">{t("nav.services")}</p>
 
           <ul class="mt-8 space-y-4 text-sm">
             {
@@ -107,7 +110,7 @@ const footerData = [
         </div>
 
         <div class="text-center sm:text-left">
-          <p class="text-lg uppercase font-pattern text-gray-900">Enlaces útiles</p>
+          <p class="text-lg uppercase font-pattern text-gray-900">{t("nav.links")}</p>
 
           <ul class="mt-8 space-y-4 text-sm">
             {
@@ -125,7 +128,7 @@ const footerData = [
         </div>
 
         <div class="text-center sm:text-left">
-          <p class="text-lg uppercase font-pattern text-gray-900">Contacto</p>
+          <p class="text-lg uppercase font-pattern text-gray-900">{t("nav.contact")}</p>
 
           <ul class="mt-8 space-y-4 text-sm">
            
@@ -182,7 +185,7 @@ const footerData = [
             class="inline-block font-pattern text-[#60C11C] transition hover:text-[#000080]"
             href="/terms-and-conditions"
           >
-            Terminos y condiciones
+              {t("nav.terms")}
           </a>
 
           <span>&middot;</span>
@@ -191,11 +194,11 @@ const footerData = [
             class="inline-block font-pattern text-[#60C11C] transition hover:text-[#000080]"
             href="/privacy-policy"
           >
-            Politica de privacidad
+              {t("nav.privacy")}
           </a>
         </p>
         
-        <p class="mt-4 text-sm font-pattern text-gray-500 sm:order-first sm:mt-0">BR SOLUTIONS &copy; {date.getFullYear()}. Todos los derechos reservados. </p>
+        <p class="mt-4 text-sm font-pattern text-gray-500 sm:order-first sm:mt-0">BR SOLUTIONS &copy; {date.getFullYear()}. {t("nav.rights")} </p>
       </div>
     </div>
   </div>
