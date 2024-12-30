@@ -61,6 +61,14 @@
     "title": "Déjanos un mensaje",
     "desc": "Hagamos algo grandioso juntos. Contáctanos hoy.",
     "btn": "Enviar"
-}
+},
+"property": {
+    "bath":"Baños",
+    "bed":"Habitaciones"
+},
+"features": {
+    "pets": "Admite mascotas",
+    "water": "Agua"
+ }
 
 }

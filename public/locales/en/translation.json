@@ -62,6 +62,13 @@
     "title": "Leave us a message",
     "desc": "Let's do something great together. Contact us today.",
     "btn": "Submit"
-}
-
+},
+"property": {
+    "bath":"Bathrooms",
+    "bed":"Bedrooms"
+},
+"features": {
+    "pets": "Allow pets",
+    "water": "Water"
+ }
 }

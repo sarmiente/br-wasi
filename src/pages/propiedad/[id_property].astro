@@ -71,7 +71,7 @@ let galleries = property.galleries;
                             <Icon name="bath_vector" class="text-[#60C11C] text-2xl" />
                             
                     
-                            <p class="font-pattern text-sm">{property.bathrooms || ''} Bathrooms </p>
+                            <p class="font-pattern text-sm">{property.bathrooms || ''} {t("property.bath")}</p>
                           </div>
 
                           <!-- Habitaciones -->
@@ -79,7 +79,7 @@ let galleries = property.galleries;
                             <Icon name="bed_vector" class="text-[#60C11C] text-2xl" />
                             
                       
-                            <p class="font-pattern text-sm">{property.bedrooms || ''} Bedrooms </p>
+                            <p class="font-pattern text-sm">{property.bedrooms || ''} {t("property.bed")} </p>
                           </div>
                      
                           <!-- Disponibilidad -->
@@ -101,9 +101,9 @@ let galleries = property.galleries;
 
       <section>
         <div class="mx-auto max-w-6xl px-6 md:px-4">
-        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+        
           <div class="h-32 rounded-lg  items-center place-content-center text-center">
-            <p class="font-hero text-2xl">
+            <p class="font-pattern text-2xl">
             
               {
                 property.for_sale === 'true' && property.sale_price_label && property.sale_price_label !== 0 ? (
@@ -117,10 +117,8 @@ let galleries = property.galleries;
               
             </p>
           </div>
-          <div class="h-auto rounded-lg items-center place-content-center text-justify lg:col-span-2">
-            <p class="font-pattern">{property.comment}</p>
-          </div>
-        </div>
+         
+        
       </div>
       </section>
       

@@ -1,0 +1,364 @@
+---
+// @ts-nocheck
+import { Icon } from "astro-icon/components";
+import type { Features } from "../../api/[id_property].json";
+import { t } from "i18next";
+
+const urlGetFeatures = "https://api.wasi.co/v1/feature/all";
+
+const options = {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json; charset=UTF-8",
+    Authentication: `Bearer ${import.meta.env.ID_COMPANY}`,
+  },
+};
+
+let internal = [];
+let external = [];
+
+const possibleFeatures = {
+  internal: [
+    "Admite mascotas",
+    "Armarios Empotrados",
+    "Balcón",
+    "Baño auxiliar",
+    "Baño en habitación principal",
+    "Barra estilo americano",
+    "Biblioteca/Estudio",
+    "Calentador",
+    "Citófono / Intercomunicador",
+    "Clósets",
+    "Cocina integral",
+    "Depósito",
+    "Doble Ventana",
+    "Gas domiciliario",
+    "Hall de Alcobas",
+    "Suelo de cerámica / mármol",
+    "Vista panorámica",
+    "Zona de lavandería",
+    "Adosado",
+    "Agua",
+    "Aire acondicionado",
+    "Alarma",
+    "Amoblado",
+    "Bifamiliar",
+    "Chimenea",
+    "Cocina equipada",
+    "Cocina tipo americano",
+    "Comedor auxiliar",
+    "Despensa",
+    "Electricidad",
+    "Habitación conductores",
+    "Habitación servicio",
+    "Hospedaje Turismo",
+    "Inmueble de Lujo",
+    "Internet",
+    "Jaccuzi",
+    "Piso Laminado",
+    "Piso Madera",
+    "Puerta de seguridad",
+    "Reformado",
+    "Sala de usos múltiples",
+    "Sauna",
+    "Trastero",
+    "Trifamiliar",
+    "Turco",
+    "Unifamiliar",
+    "Video por cable",
+  ],
+  external: [
+    "Acceso pavimentado",
+    "Área Social",
+    "Ascensor",
+    "Centros comerciales",
+    "Cerca zona urbana",
+    "Circuito cerrado de TV",
+    "Colegios / Universidades",
+    "Garaje",
+    "Gimnasio",
+    "Parqueadero visitantes",
+    "Parques cercanos",
+    "Piscina",
+    "Portería / Recepción",
+    "Salón Comunal",
+    "Sobre vía principal",
+    "Trans. público cercano",
+    "Urbanización Cerrada",
+    "Vigilancia",
+    "Zona Infantil",
+    "Zona residencial",
+    "Zonas deportivas",
+    "Zonas verdes",
+    "Acceso discapacitados",
+    "Árboles frutales",
+    "Áreas turísticas",
+    "Barbacoa / parrilla / quincho",
+    "Bosque nativos",
+    "Bungalow / pareado",
+    "Calles de Tosca",
+    "Cancha de baloncesto",
+    "Cancha de fútbol",
+    "Cancha de squash",
+    "Cancha de tenis",
+    "Centro Médico",
+    "Club House",
+    "Club Social",
+    "Cochera / Garaje",
+    "Edificio Inteligente",
+    "Establo",
+    "Galpón",
+    "Garita de Entrada",
+    "Invernadero",
+    "Jardín",
+    "Jardín de techo",
+    "Jaula de golf",
+    "Kiosko",
+    "Lago",
+    "Laguna",
+    "Montaña",
+    "Oficina de negocios",
+    "Patio",
+    "Pesebrera",
+    "Pista de Padel",
+    "Planta eléctrica",
+    "Playas",
+    "Pozo de agua natural",
+    "Rio/Quebrada cercano",
+    "Sala de internet",
+    "Sistema de riego",
+    "Terraza",
+    "Trastero",
+    "Ubicacion Exterior",
+    "Ubicacion Interior",
+    "Vivienda bifamiliar",
+    "Vivienda multifamiliar",
+    "Vivienda unifamiliar",
+    "Zona campestre",
+    "Zona camping",
+    "Zona comercial",
+    "Zona industrial",
+  ],
+};
+
+const translations = {
+  "Admite mascotas": "Pets Allowed",
+  "Armarios Empotrados": "Built-in Wardrobes",
+  "Balcón": "Balcony",
+  "Baño auxiliar": "Guest Bathroom",
+  "Baño en habitación principal": "Master Bathroom",
+  "Barra estilo americano": "American Bar",
+  "Biblioteca/Estudio": "Library/Study",
+  "Calentador": "Heater",
+  "Citófono / Intercomunicador": "Intercom",
+  "Clósets": "Closets",
+  "Cocina integral": "Integral Kitchen",
+  "Depósito": "Storage Room",
+  "Doble Ventana": "Double Window",
+  "Gas domiciliario": "Residential Gas",
+  "Hall de Alcobas": "Bedroom Hall",
+  "Suelo de cerámica / mármol": "Ceramic/Marble Floor",
+  "Vista panorámica": "Panoramic View",
+  "Zona de lavandería": "Laundry Area",
+  "Adosado": "Semi-detached",
+  "Agua": "Water",
+  "Aire acondicionado": "Air Conditioning",
+  "Alarma": "Alarm",
+  "Amoblado": "Furnished",
+  "Bifamiliar": "Two-family House",
+  "Chimenea": "Fireplace",
+  "Cocina equipada": "Equipped Kitchen",
+  "Cocina tipo americano": "American Style Kitchen",
+  "Comedor auxiliar": "Auxiliary Dining Room",
+  "Despensa": "Pantry",
+  "Electricidad": "Electricity",
+  "Habitación conductores": "Driver's Room",
+  "Habitación servicio": "Service Room",
+  "Hospedaje Turismo": "Tourism Accommodation",
+  "Inmueble de Lujo": "Luxury Property",
+  "Internet": "Internet",
+  "Jaccuzi": "Jacuzzi",
+  "Piso Laminado": "Laminate Floor",
+  "Piso Madera": "Wood Floor",
+  "Puerta de seguridad": "Security Door",
+  "Reformado": "Renovated",
+  "Sala de usos múltiples": "Multipurpose Room",
+  "Sauna": "Sauna",
+  "Trastero": "Storage Room",
+  "Trifamiliar": "Three-family House",
+  "Turco": "Turkish Bath",
+  "Unifamiliar": "Single-family House",
+  "Video por cable": "Cable Video",
+  "Acceso pavimentado": "Paved Access",
+  "Área Social": "Social Area",
+  "Ascensor": "Elevator",
+  "Centros comerciales": "Shopping Centers",
+  "Cerca zona urbana": "Near Urban Area",
+  "Circuito cerrado de TV": "Closed Circuit TV",
+  "Colegios / Universidades": "Schools / Universities",
+  "Garaje": "Garage",
+  "Gimnasio": "Gym",
+  "Parqueadero visitantes": "Visitor Parking",
+  "Parques cercanos": "Nearby Parks",
+  "Piscina": "Pool",
+  "Portería / Recepción": "Reception",
+  "Salón Comunal": "Community Room",
+  "Sobre vía principal": "On Main Road",
+  "Trans. público cercano": "Public Transport Nearby",
+  "Urbanización Cerrada": "Gated Community",
+  "Vigilancia": "Surveillance",
+  "Zona Infantil": "Children's Zone",
+  "Zona residencial": "Residential Area",
+  "Zonas deportivas": "Sports Zones",
+  "Zonas verdes": "Green Zones",
+  "Acceso discapacitados": "Disabled Access",
+  "Árboles frutales": "Fruit Trees",
+  "Áreas turísticas": "Tourist Areas",
+  "Barbacoa / parrilla / quincho": "Barbecue/Grill",
+  "Bosque nativos": "Native Forests",
+  "Bungalow / pareado": "Bungalow/Semi-detached",
+  "Calles de Tosca": "Unpaved Streets",
+  "Cancha de baloncesto": "Basketball Court",
+  "Cancha de fútbol": "Football Field",
+  "Cancha de squash": "Squash Court",
+  "Cancha de tenis": "Tennis Court",
+  "Centro Médico": "Medical Center",
+  "Club House": "Club House",
+  "Club Social": "Social Club",
+  "Cochera / Garaje": "Garage",
+  "Edificio Inteligente": "Smart Building",
+  "Establo": "Stable",
+  "Galpón": "Shed",
+  "Garita de Entrada": "Entrance Booth",
+  "Invernadero": "Greenhouse",
+  "Jardín": "Garden",
+  "Jardín de techo": "Roof Garden",
+  "Jaula de golf": "Golf Cage",
+  "Kiosko": "Kiosk",
+  "Lago": "Lake",
+  "Laguna": "Lagoon",
+  "Montaña": "Mountain",
+  "Oficina de negocios": "Business Office",
+  "Patio": "Yard",
+  "Pesebrera": "Stable",
+  "Pista de Padel": "Padel Court",
+  "Planta eléctrica": "Power Plant",
+  "Playas": "Beaches",
+  "Pozo de agua natural": "Natural Water Well",
+  "Rio/Quebrada cercano": "Nearby River/Stream",
+  "Sala de internet": "Internet Room",
+  "Sistema de riego": "Irrigation System",
+  "Terraza": "Terrace",
+  "Ubicacion Exterior": "Exterior Location",
+  "Ubicacion Interior": "Interior Location",
+  "Vivienda bifamiliar": "Two-family House",
+  "Vivienda multifamiliar": "Multi-family House",
+  "Vivienda unifamiliar": "Single-family House",
+  "Zona campestre": "Countryside Area",
+  "Zona camping": "Camping Area",
+  "Zona comercial": "Commercial Area",
+  "Zona industrial": "Industrial Area"
+};
+
+
+
+function translateFeature(feature) {
+  return translations[feature] || feature;
+}
+
+// Función para obtener las características desde la API
+async function fetchFeature(params: Record<string, string | undefined>) {
+  const propertyId = params.id_property;
+
+  if (!propertyId) {
+    console.error("No se proporcionó el ID de la propiedad.");
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      `${urlGetFeatures}?id_property=${propertyId}&id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}`,
+      options
+    );
+    if (!response.ok) {
+      throw new Error(`Error en la solicitud: ${response.statusText}`);
+    }
+    const feature = await response.json();
+
+    internal = feature.internal || [];
+    external = feature.external || [];
+  } catch (error) {
+    console.error("Error al obtener las características:", error);
+  }
+}
+
+// Llamar a la función con los parámetros disponibles
+await fetchFeature(Astro.params);
+
+const internalFeatures = possibleFeatures.internal.filter((feature) =>
+  internal.some((item) => item.nombre === feature || item.name === feature)
+);
+
+const externalFeatures = possibleFeatures.external.filter((feature) =>
+  external.some((item) => item.nombre === feature || item.name === feature)
+);
+---
+
+<div class="p-5 max-w-5xl mx-auto">
+  <!-- Título general -->
+  <h2 class="text-2xl font-bold text-gray-800 mb-6">Features</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Internal Features -->
+    <div>
+      <h3 class="text-xl font-semibold text-gray-700 mb-4">
+        Internal Features
+      </h3>
+      <ul class="space-y-3">
+        {
+          internalFeatures.length > 0 ? (
+            internalFeatures.map((feature, index) => (
+              <li
+                key={index}
+                class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg shadow-md"
+              >
+                <div class="w-8 h-8 bg-[#60C11C] text-white rounded-full flex items-center justify-center text-sm font-semibold">
+                  <Icon name="check" />
+                </div>
+                <span class="text-gray-800">{translateFeature(feature)}</span>
+              </li>
+            ))
+          ) : (
+            <p class="text-gray-500">No internal features available.</p>
+          )
+        }
+      </ul>
+    </div>
+
+    <!-- External Features -->
+    <div>
+      <h3 class="text-xl font-semibold text-gray-700 mb-4">
+        External Features
+      </h3>
+      <ul class="space-y-3">
+        {
+          externalFeatures.length > 0 ? (
+            externalFeatures.map((feature, index) => (
+              <li
+                key={index}
+                class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg shadow-md"
+              >
+                <div class="w-8 h-8 bg-[#60C11C] text-white rounded-full flex items-center justify-center text-sm font-semibold">
+                  <Icon name="check" />
+                </div>
+                <span class="text-gray-800">{translateFeature(feature)}</span>
+              </li>
+            ))
+          ) : (
+            <p class="text-gray-500">No external features available.</p>
+          )
+        }
+      </ul>
+    </div>
+  </div>
+</div>
