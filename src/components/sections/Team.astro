@@ -1,14 +1,14 @@
 ---
-
+import { t } from "i18next";
 ---
 
 <section class="bg-white dark:bg-gray-900 pt-36 pb-32">
     <!-- Header de la sección -->
     <div class="relative h-auto bg-gray-100 dark:bg-gray-800 py-10">
       <div class="container px-6 mx-auto">
-        <h1 class="text-sm font-pattern uppercase text-gray-600 text-center">El Equipo Ejecutivo</h1>
+        <h1 class="text-sm font-pattern uppercase text-gray-600 text-center">{t("team.title")}</h1>
         <h2 class="mt-2 text-center text-2xl font-heading uppercase text-gray-900 sm:text-4xl dark:text-white">
-          Conoce a Nuestros Increíbles Miembros del Equipo
+          {t("team.desc")}
         </h2>
       </div>
     </div>
@@ -22,7 +22,9 @@
             <img class="object-cover w-full transform transition-transform duration-300 group-hover:scale-105" src="/src/assets/img/milagros.png" alt="Milagros Ortiz">
           </div>
           <h1 class="mt-4 text-2xl font-heading text-gray-700 capitalize dark:text-white">Milagros Ortiz</h1>
-          <p class="mt-2 font-pattern text-gray-500 capitalize dark:text-gray-300">Representante de Ventas</p>
+          <p class="mt-2 font-pattern text-gray-500 capitalize dark:text-gray-300">
+            {t("team.rep")}
+          </p>
         </div>
   
         <!-- Card individual -->
@@ -40,7 +42,7 @@
             <img class="object-cover w-full transform transition-transform duration-300 group-hover:scale-105" src="/src/assets/img/grace.png" alt="Grace Garcia">
           </div>
           <h1 class="mt-4 text-2xl font-heading text-gray-700 capitalize dark:text-white">Grace Garcia</h1>
-          <p class="mt-2 text-gray-500 font-pattern capitalize dark:text-gray-300">Representante de Ventas</p>
+          <p class="mt-2 text-gray-500 font-pattern capitalize dark:text-gray-300">{t("team.rep")}</p>
         </div>
       </div>
     </div>

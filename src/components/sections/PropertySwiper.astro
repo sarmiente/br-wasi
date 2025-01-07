@@ -1,4 +1,5 @@
 ---
+// @ts-nocheck
 const urlGetProperty = "https://api.wasi.co/v1/property/get/";
 
 const options = {
@@ -26,35 +27,36 @@ async function fetchProperty(params: Record<string, string | undefined>) {
 await fetchProperty(Astro.params);
 
 
+
 ---
 <section class="relative">
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 ">
            
     <div id="main-slider" class="keen-slider rounded-xl">
-      {/* @ts-ignore */}
+      
               <img class="keen-slider__slide flex items-center justify-center text-white text-4xl font-bold h-[60vh] w-auto object-cover" src={property.galleries[0][0].url_original} alt="Project Cover">
-                 {/* @ts-ignore */}
+      
               <img class="keen-slider__slide flex items-center justify-center text-white text-4xl font-bold h-[60vh] w-auto object-cover" src={property.galleries[0][1].url_original} alt="Project Cover">
-                 {/* @ts-ignore */}
+      
               <img class="keen-slider__slide flex items-center justify-center text-white text-4xl font-bold h-[60vh] w-auto object-cover" src={property.galleries[0][2].url_original} alt="Project Cover">
-                 {/* @ts-ignore */}
+      
               <img class="keen-slider__slide flex items-center justify-center text-white text-4xl font-bold h-[60vh] w-auto object-cover" src={property.galleries[0][3].url_original} alt="Project Cover">
-                 {/* @ts-ignore */}
+      
               <img class="keen-slider__slide flex items-center justify-center text-white text-4xl font-bold h-[60vh] w-auto object-cover" src={property.galleries[0][4].url_original} alt="Project Cover">
         </div>
        
 
 
     <div id="thumbnail-slider" class="keen-slider mt-4 rounded-xl">
-       {/* @ts-ignore */}
+      
       <img class="keen-slider__slide cursor-pointer flex items-center justify-center text-4xl font-bold h-[100px] w-auto object-cover" src={property.galleries[0][0].url_original} alt="Project Cover">
-       {/* @ts-ignore */}
+      
       <img class="keen-slider__slide cursor-pointer flex items-center justify-center text-white text-4xl font-bold h-[100px] w-auto object-cover" src={property.galleries[0][1].url_original} alt="Project Cover">
-       {/* @ts-ignore */}
+      
       <img class="keen-slider__slide cursor-pointer flex items-center justify-center text-white text-4xl font-bold h-[100px] w-auto object-cover" src={property.galleries[0][2].url_original} alt="Project Cover">
-       {/* @ts-ignore */}
+      
       <img class="keen-slider__slide cursor-pointer flex items-center justify-center text-white text-4xl font-bold h-[100px] w-auto object-cover" src={property.galleries[0][3].url_original} alt="Project Cover">
-       {/* @ts-ignore */}
+      
       <img class="keen-slider__slide cursor-pointer flex items-center justify-center text-white text-4xl font-bold h-[100px] w-auto object-cover" src={property.galleries[0][4].url_original} alt="Project Cover">
     
   
@@ -66,7 +68,7 @@ await fetchProperty(Astro.params);
 <script is:inline src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.js"></script>
 
 <script>
-  {/* @ts-ignore */}
+{/* @ts-ignore */}
   function ThumbnailPlugin(mainSlider) {
     {/* @ts-ignore */}
     return (thumbnailSlider) => {

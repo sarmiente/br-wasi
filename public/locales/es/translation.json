@@ -60,7 +60,9 @@
     "contact": {
     "title": "Déjanos un mensaje",
     "desc": "Hagamos algo grandioso juntos. Contáctanos hoy.",
-    "btn": "Enviar"
+    "btn": "Enviar",
+    "cancel": "Cancelar",
+    "book": "Reservar"
 },
 "property": {
     "bath":"Baños",
@@ -69,6 +71,26 @@
 "features": {
     "pets": "Admite mascotas",
     "water": "Agua"
- }
-
+ }, 
+ "team": {
+    "title": "Nuestro Equipo",
+    "desc": "Conoce a las personas que hacen posible que tu experiencia sea única.",
+    "rep": "Representante de ventas"
+ },
+ "hidden": {
+    "title": "Tesoros Ocultos de Cartagena de Indias: Fuera de los Caminos Trillados",
+    "desc": "Explora los tesoros ocultos de Cartagena de Indias, Colombia! Desde vibrantes vecindarios hasta playas apartadas, descubre las joyas inusuales de la ciudad en esta guía."
+},
+"nautical": {
+    "title": "Servicios de Transporte Nautico",
+    "title-1": "Ofertas Especiales",
+    "subtitle-1": "Catamarán",
+    "content-1": "Navega con estabilidad y espacio en nuestros catamaranes de última generación, ideales para celebraciones y eventos inolvidables.",
+    "title-2": "Más reservados",
+    "subtitle-2": "Yates",
+    "content-2": "Sumérgete en el lujo y la sofisticación a bordo de nuestros yates, perfectos para escapadas privadas y experiencias VIP.",
+    "title-3": "Económicos",
+    "subtitle-3": "Botes",
+    "content-3": "Disfruta de la versatilidad y el acceso a rincones escondidos del mar en nuestros botes, diseñados para la aventura y el confort."
+}
 }

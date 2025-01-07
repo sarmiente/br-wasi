@@ -3,33 +3,45 @@
 import { changeLanguage } from "i18next";
 import { t } from "i18next";
 import Layout from "../../layouts/Layout.astro";
+import PropertyList from "../../components/PropertyList.astro";
 
 changeLanguage("en");
 ---
 
-<Layout title="Gestion de Propiedades">
+<Layout title={t("nav.manage")}>
     <section class="dark:bg-slate-800 bg-gray-50 lg:pt-24">
         <div class="mx-auto max-w-screen-xl px-4 py-32 lg:py-16">
           <!-- Imagen destacada -->
-        
+     {/*
+         
             <div class="mb-8">
               <img
-                src="https://images.unsplash.com/photo-1707623988408-ab88c9981730?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/src/assets/img/br_front_3.jpg"
                 alt=""
                 class="rounded-lg w-full object-cover h-64 md:h-96"
               />
             </div>
+     
+     */}
   
           <!-- Título y detalles del post -->
           <div class="text-center mb-12">
-            <h1 class="text-2xl lg:text-4xl font-heading mb-4 text-gray-900 dark:text-white">{t("nav.manage")}</h1>
+            <h1 class="text-2xl lg:text-4xl font-heading mb-4 text-gray-900 dark:text-white">{t("nav.manage")} Services</h1>
             
           </div>
     
           <!-- Contenido del post -->
           <article class="prose prose-lg dark:prose-invert max-w-none mx-auto">
-            Content
+            
+            <p class="font-hero">
+              Focus on building your empire, we'll handle the day-to-day. Our meticulous property management ensures your investment thrives while you conquer your goals. 
+              Property management has evolved significantly in recent years, and 2025 is no exception. With the integration of innovative technologies, a focus on sustainability, and a constantly changing real estate market, this service has become a fundamental pillar for property owners looking to maximize their investments and maintain efficient management.
+            </p>
+            <p class="font-hero"> 
+              It involves comprehensive property management, from tenant search to property maintenance and compliance with legal regulations. This service is designed to free property owners from the operational burden of managing their properties, delegating tasks to experts in the field.
+            </p>
           </article>
+          <PropertyList />
         </div>
       </section>
 </Layout>

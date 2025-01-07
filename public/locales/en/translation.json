@@ -31,7 +31,7 @@
         "more": "Learn More"
     },
     "proplist": {
-        "title" : "Explore our property portfolio.",
+        "title" : "Explore our property portfolio",
         "sale-price": "Selling price",
         "rent-price": "Rental price",
         "btn": "View Property",
@@ -61,7 +61,9 @@
 "contact": {
     "title": "Leave us a message",
     "desc": "Let's do something great together. Contact us today.",
-    "btn": "Submit"
+    "btn": "Submit",
+    "cancel": "Cancel",
+    "book": "Book"
 },
 "property": {
     "bath":"Bathrooms",
@@ -70,5 +72,26 @@
 "features": {
     "pets": "Allow pets",
     "water": "Water"
- }
+ },
+ "team": {
+    "title": "Our Team",
+    "desc": "Meet the people who make your experience unique.",
+    "rep": "Sales Representative"
+},
+"hidden": {
+    "title": "Cartagena de Indias Hidden Treasures: Off the Beaten Path",
+    "desc": "Explore the hidden treasures of Cartagena de Indias, Colombia! From vibrant neighborhoods to secluded beaches, discover the city's offbeat gems in this guide."
+},
+"nautical": {
+    "title": "Nautical Transport Services",
+    "title-1": "Special offers",
+    "subtitle-1": "Catamaran",
+    "content-1": "Sail with stability and space in our state-of-the-art catamarans, perfect for unforgettable celebrations and events.",
+    "title-2": "More reserved",
+    "subtitle-2": "Yatchs",
+    "content-2": "Immerse yourself in luxury and sophistication aboard our yachts, ideal for private getaways and VIP experiences.",
+    "title-3": "Economical",
+    "subtitle-3": "Boats",
+    "content-3": "Enjoy versatility and access to hidden corners of the sea in our boats, designed for adventure and comfort."
+}
 }

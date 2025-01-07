@@ -7,6 +7,7 @@ import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 import { t } from "i18next";
 
+
 changeLanguage("es");
 
 const urlGetProperty = "https://api.wasi.co/v1/property/get/";
@@ -30,7 +31,7 @@ async function fetchProperty(params: Record<string, string | undefined>) {
 }
 // Llamar a la función con los parámetros disponibles
 await fetchProperty(Astro.params);
-let galleries = property.galleries;
+
 ---
 <Layout title={property.title}>
    <section class="pt-32 pb-16">
@@ -54,8 +55,8 @@ let galleries = property.galleries;
                       <p class="mt-8 text-sm text-zinc-600 dark:text-zinc-200 sm:w-2/3 xl:w-1/2 capitalize font-pattern">{property.address}</p>
                       */}
                   </div>
+                 
                   <PropertySwiper />
-                  
                   <!-- Características -->
                         <div class="m-auto max-w-5xl mx-auto flex flex-wrap justify-center gap-12 text-center">
 

@@ -1,7 +1,10 @@
 ---
+// @ts-nocheck
 import { changeLanguage } from "i18next";
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
 
 changeLanguage("es");
 
@@ -13,13 +16,13 @@ const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueO
     <section class="pb-16 py-10">
 		
       <h1 class=" text-center font-pattern uppercase dark:text-white ">
-        Explore 
+        Explora 
       </h1>
-      <p class="text-3xl font-heading text-center uppercase sm:text-4xl">Our Latest Articles</p>
+      <p class="text-3xl font-heading text-center uppercase sm:text-4xl">Nuestros Ultimos Articulos</p>
       <ul class="grid gap-8 max-w-6xl mx-auto px-4 sm:grid-cols-2 lg:grid-cols-3 py-12">
         {posts.map((post) => (
           <li class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <a href={`/blog/${post.slug}/`} class="block h-full">
+            <a href={`${localizePath("/blog")}/${post.slug}/`} class="block h-full">
               <img
                 width={720}
                 height={360}
@@ -29,11 +32,11 @@ const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueO
               />
               <div class="p-6">
                 <h4 class="text-xl font-heading text-gray-900  mb-3">
-                  {post.data.title}
+                  {t(post.data.title)}
                 </h4>
                 
                 <p class="text-gray-700 font-pattern text-xs line-clamp-3">
-                  {post.data.description || 'Descripción del artículo...'}
+                  {t(post.data.description || 'Descripción del artículo...')}
                 </p>
 
               </div>
