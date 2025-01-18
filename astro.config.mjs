@@ -17,10 +17,11 @@ export default defineConfig({
   integrations: [tailwind(), icon(), mdx(), react(), sitemap({
     i18n: {
       defaultLocale: "es", 
-      locales: {
-        en: "en", 
-        es: "es",
-      },
+      locales: 
+        ["en", 
+         "es"],
+         translations: "/locales"
+      ,
     },
   }), astroI18next() ],
 });
