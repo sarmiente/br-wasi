@@ -1,24 +1,24 @@
 ---
-import ModalForm from "../../components/sections/ModalForm.astro";
+import LandForm from "../../components/modals/LandForm.astro";
 import { t } from "i18next";
 
 const services = [
   {
-    title: t("nautical.title-1"),
-    subtitle: t("nautical.subtitle-1"),
-    image: "/src/assets/img/catamaran_br.jpg",
+    title: t("land.car"),
+    subtitle: "Vans",
+    image: "/van.jpg",
     content: t("nautical.content-1")
   },
   {
     title: t("nautical.title-2"),
-    subtitle: t("nautical.subtitle-2"),
-    image: "/src/assets/img/yates_br.jpg",
+    subtitle: "SUVs",
+    image: "/suv.jpg",
     content: t("nautical.content-2")
   },
   {
     title: t("nautical.title-3"),
-    subtitle: t("nautical.subtitle-3"),
-    image: "/src/assets/img/botes_br.jpg",
+    subtitle: t("land.car"),
+    image: "/automobile.jpg",
     content: t("nautical.content-3")
   },
 ];
@@ -26,7 +26,7 @@ const services = [
 
 
     <!-- Modal Card -->
-    <div x-data="{modalIsOpen: false}">
+    <div x-data="{modalIsOpen: false}" x-init="modalIsOpen = false">
         <ul class="grid gap-8 max-w-6xl mx-auto px-4 sm:grid-cols-2 lg:grid-cols-3 py-12"
       >
         {services.map((service) => (
@@ -78,7 +78,7 @@ const services = [
             </div>
             <!-- Dialog Body -->
            
-              <ModalForm />
+              <LandForm />
             
             <!-- Dialog Footer -->
             <div class="flex flex-col-reverse justify-between gap-2 border-t border-neutral-300 bg-neutral-50/60 p-4 dark:border-neutral-700 dark:bg-neutral-950/20 sm:flex-row sm:items-center md:justify-end">

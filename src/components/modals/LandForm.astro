@@ -1,0 +1,124 @@
+---
+import { t } from "i18next";
+---
+<div class="p-3">
+    <div class="relative max-w-3xl h-auto flex flex-wrap gap-6 rounded-tr-3xl border border-gray-100 sm:flex-nowrap sm:gap-0"
+    >
+    <div class="w-full p-4 text-center lg:w-1/2 ">
+      <!-- Etiqueta de descuento -->
+     {/*
+     
+      <span
+        class="absolute -left-px -top-px rounded-bl-3xl rounded-tr-3xl bg-rose-600 px-6 py-4 font-medium uppercase tracking-widest text-white z-10 hidden md:flex"
+      >
+        
+      </span>
+      */}
+  
+      <!-- Imagen -->
+  
+      <img
+            alt="Fotos de servicios de transporte nautico"
+            src="https://images.unsplash.com/photo-1560976027-3c09ce1c6da5?q=80&w=1895&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            class="relative inset-0 w-full object-cover rounded-xl hidden sm:flex"
+          />
+
+    </div>
+      <!-- Formulario -->
+      <div class="w-full p-4 text-center lg:w-1/2 ">
+        <form action="#" class="space-y-6">
+          <!-- Input de Nombre -->
+          <div>
+            <label class="sr-only" for="name">{t("cta.name")}</label>
+            <input
+              class="w-full rounded-lg border-gray-200 p-3 text-sm"
+              placeholder={t("cta.name")}
+              type="text"
+              id="name"
+            />
+          </div>
+  
+          <!-- Inputs de Email y Teléfono -->
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <label class="sr-only" for="email">{t("cta.mail")}</label>
+              <input
+                class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                placeholder={t("cta.mail")}
+                type="email"
+                id="email"
+              />
+            </div>
+  
+            <div>
+              <label class="sr-only" for="phone">{t("cta.phone")}</label>
+              <input
+                class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                placeholder={t("cta.phone")}
+                type="tel"
+                id="phone"
+              />
+            </div>
+          </div>
+  
+          <!-- Opciones de selección -->
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div>
+              <label
+                for="Option1"
+                class="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
+                tabindex="0"
+              >
+                <input class="sr-only" id="Option1" type="radio" tabindex="-1" name="option" />
+                <span class="text-sm"> {t("land.car")} </span>
+              </label>
+            </div>
+  
+            <div>
+              <label
+                for="Option2"
+                class="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
+                tabindex="0"
+              >
+                <input class="sr-only" id="Option2" type="radio" tabindex="-1" name="option" />
+                <span class="text-sm"> Vans </span>
+              </label>
+            </div>
+  
+            <div>
+              <label
+                for="Option3"
+                class="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
+                tabindex="0"
+              >
+                <input class="sr-only" id="Option3" type="radio" tabindex="-1" name="option" />
+                <span class="text-sm">SUVs </span>
+              </label>
+            </div>
+          </div>
+  
+          <!-- Mensaje -->
+          <div>
+            <label class="sr-only" for="message">{t("contact.title")}</label>
+            <textarea
+              class="resize-none  w-full rounded-lg border-gray-200 p-3 text-sm"
+              placeholder={t("cta.msg-label")}
+              rows="4"
+              id="message"
+            ></textarea>
+          </div>
+  
+          <!-- Botón -->
+          <div class="mt-4">
+            <button
+              type="submit"
+              class="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
+            >
+            {t("contact.btn")} 
+            </button>
+          </div>
+        </form>
+      </div>
+  
+  </div>
+  

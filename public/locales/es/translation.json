@@ -92,5 +92,10 @@
     "title-3": "Económicos",
     "subtitle-3": "Botes",
     "content-3": "Disfruta de la versatilidad y el acceso a rincones escondidos del mar en nuestros botes, diseñados para la aventura y el confort."
+},
+
+"land": {
+    "title": "Servicios de Transporte Terrestre",
+    "car":"Automóvil"
 }
 }
