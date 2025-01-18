@@ -9,7 +9,7 @@ const options = {
   method: 'POST', 
   headers: {
     "Content-Type": "application/json; charset=UTF-8",
-    Authentication: `Bearer ${import.meta.env.ID_COMPANY}`,
+    Authentication: `Bearer ${import.meta.env.PUBLIC_ID_COMPANY}`,
   },
 };
 
@@ -27,7 +27,7 @@ async function fetchFeature(params: Record<string, string | undefined>) {
 
   try {
     const response = await fetch(
-      `${urlGetFeatures}?id_property=${propertyId}&id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}`, options
+      `${urlGetFeatures}?id_property=${propertyId}&id_company=${import.meta.env.PUBLIC_ID_COMPANY}&wasi_token=${import.meta.env.PUBLIC_WASI_TOKEN}`, options
     );
     if (!response.ok) {
       throw new Error(`Error en la solicitud: ${response.statusText}`);

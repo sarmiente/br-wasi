@@ -10,7 +10,7 @@ const options = {
   method: "POST",
   headers: {
     "Content-Type": "application/json; charset=UTF-8",
-    Authentication: `Bearer ${import.meta.env.ID_COMPANY}`,
+    Authentication: `Bearer ${import.meta.env.PUBLIC_ID_COMPANY}`,
   },
 };
 
@@ -71,21 +71,21 @@ const possibleFeatures = {
     "Acceso pavimentado",
     "Área Social",
     "Ascensor",
-    "Centros comerciales",
-    "Cerca zona urbana",
-    "Circuito cerrado de TV",
-    "Colegios / Universidades",
-    "Garaje",
-    "Gimnasio",
-    "Parqueadero visitantes",
-    "Parques cercanos",
-    "Piscina",
-    "Portería / Recepción",
-    "Salón Comunal",
-    "Sobre vía principal",
-    "Trans. público cercano",
-    "Urbanización Cerrada",
-    "Vigilancia",
+    "Centros comerciales",
+    "Cerca zona urbana",
+    "Circuito cerrado de TV",
+    "Colegios / Universidades",
+    "Garaje",
+    "Gimnasio",
+    "Parqueadero visitantes",
+    "Parques cercanos",
+    "Piscina",
+    "Portería / Recepción",
+    "Salón Comunal",
+    "Sobre vía principal",
+    "Trans. público cercano",
+    "Urbanización Cerrada",
+    "Vigilancia",
     "Zona Infantil",
     "Zona residencial",
     "Zonas deportivas",
@@ -277,7 +277,7 @@ async function fetchFeature(params: Record<string, string | undefined>) {
 
   try {
     const response = await fetch(
-      `${urlGetFeatures}?id_property=${propertyId}&id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}`,
+      `${urlGetFeatures}?id_property=${propertyId}&id_company=${import.meta.env.PUBLIC_ID_COMPANY}&wasi_token=${import.meta.env.PUBLIC_WASI_TOKEN}`,
       options
     );
     if (!response.ok) {

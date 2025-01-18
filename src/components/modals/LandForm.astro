@@ -2,31 +2,20 @@
 import { t } from "i18next";
 ---
 <div class="p-3">
-    <div class="relative max-w-3xl h-auto flex flex-wrap gap-6 rounded-tr-3xl border border-gray-100 sm:flex-nowrap sm:gap-0"
+    <div class="relative max-w-3xl p-0 h-auto flex flex-wrap gap-4 rounded-tr-3xl border border-gray-100 sm:flex-nowrap"
     >
-    <div class="w-full p-4 text-center lg:w-1/2 ">
-      <!-- Etiqueta de descuento -->
-     {/*
-     
-      <span
-        class="absolute -left-px -top-px rounded-bl-3xl rounded-tr-3xl bg-rose-600 px-6 py-4 font-medium uppercase tracking-widest text-white z-10 hidden md:flex"
-      >
-        
-      </span>
-      */}
-  
-      <!-- Imagen -->
-  
+    <div class="w-full p-2 text-center lg:w-1/2 ">
+      
       <img
             alt="Fotos de servicios de transporte nautico"
             src="https://images.unsplash.com/photo-1560976027-3c09ce1c6da5?q=80&w=1895&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            class="relative inset-0 w-full object-cover rounded-xl hidden sm:flex"
+            class="relative inset-0 w-full h-96 object-cover rounded-xl hidden sm:flex"
           />
 
     </div>
       <!-- Formulario -->
       <div class="w-full p-4 text-center lg:w-1/2 ">
-        <form action="#" class="space-y-6">
+        <form action="#" class="space-y-4">
           <!-- Input de Nombre -->
           <div>
             <label class="sr-only" for="name">{t("cta.name")}</label>
@@ -70,7 +59,7 @@ import { t } from "i18next";
                 tabindex="0"
               >
                 <input class="sr-only" id="Option1" type="radio" tabindex="-1" name="option" />
-                <span class="text-sm"> {t("land.car")} </span>
+                <span class="text-sm"> Vans </span>
               </label>
             </div>
   
@@ -81,7 +70,7 @@ import { t } from "i18next";
                 tabindex="0"
               >
                 <input class="sr-only" id="Option2" type="radio" tabindex="-1" name="option" />
-                <span class="text-sm"> Vans </span>
+                <span class="text-sm"> SUVs </span>
               </label>
             </div>
   
@@ -92,7 +81,7 @@ import { t } from "i18next";
                 tabindex="0"
               >
                 <input class="sr-only" id="Option3" type="radio" tabindex="-1" name="option" />
-                <span class="text-sm">SUVs </span>
+                <span class="text-sm"> {t("land.car")}  </span>
               </label>
             </div>
           </div>

@@ -6,7 +6,7 @@ const options = {
   method: "POST",
     headers: {
       "Content-Type": "application/json; charset=UTF-8",
-      Authentication: `Bearer ${import.meta.env.ID_COMPANY}`,
+      Authentication: `Bearer ${import.meta.env.PUBLIC_ID_COMPANY}`,
     }
 };
 
@@ -16,7 +16,7 @@ async function fetchProperty(params: Record<string, string | undefined>) {
   const propertyId = params.id_property;
 
   try {
-    const response = await fetch(`${urlGetProperty}${propertyId}?id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}`, options);
+    const response = await fetch(`${urlGetProperty}${propertyId}?id_company=${import.meta.env.PUBLIC_ID_COMPANY}&wasi_token=${import.meta.env.PUBLIC_WASI_TOKEN}`, options);
     property = await response.json();
   } catch (error) {
     console.error('Error fetching property:', error);

@@ -10,10 +10,10 @@ const options = {
     method: "POST",
     headers: {
         "Content-Type": "application/json; charset=UTF-8",
-        Authentication: `Bearer ${import.meta.env.ID_COMPANY}`,
+        Authentication: `Bearer ${import.meta.env.PUBLIC_ID_COMPANY}`,
     }
 };
-const res = await fetch(`${urlSearch}id_company=${import.meta.env.ID_COMPANY}&wasi_token=${import.meta.env.WASI_TOKEN}&for_rent=true&take=100`, options);
+const res = await fetch(`${urlSearch}id_company=${import.meta.env.PUBLIC_ID_COMPANY}&wasi_token=${import.meta.env.PUBLIC_WASI_TOKEN}&for_rent=true&take=100`, options);
 const data = await res.json();
 const properties = Object.keys(data)
     .filter(key => key !== "total" && key !== "status")
