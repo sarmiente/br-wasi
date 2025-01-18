@@ -128,6 +128,7 @@ const properties = Object.keys(data)
 <!-- Script para habilitar List.js -->
 <script is:inline src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 <script is:inline>
+  // @ts-nocheck
   // Configuración de List.js
   var options = {
     valueNames: ['titulo', 'property-id', 'price'], // Clases a buscar
@@ -137,6 +138,6 @@ const properties = Object.keys(data)
     pagination: true
   };
 
-  // Inicialización
+  
   var listProperties = new List('properties', options);
 </script>
