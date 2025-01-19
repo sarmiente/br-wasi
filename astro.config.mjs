@@ -17,9 +17,10 @@ export default defineConfig({
   integrations: [tailwind(), icon(), mdx(), react(), sitemap({
     i18n: {
       defaultLocale: "es", 
-      locales: 
-        ["en", 
-         "es"],
+      locales: {
+        en: "en", 
+        es: "es",
+      },
          translations: "/locales"
       ,
     },

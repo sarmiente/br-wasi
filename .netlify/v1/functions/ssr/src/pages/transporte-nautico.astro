@@ -1,0 +1,38 @@
+---
+import { changeLanguage } from "i18next";
+import Layout from "../layouts/Layout.astro";
+import NauticalModalCard from "../components/modals/NauticalModalCard.astro";
+import { t } from "i18next";
+
+
+changeLanguage("es");
+
+---
+<Layout title="Servicios de Transporte Nautico">
+  <section class="dark:bg-slate-800 bg-gray-50 lg:pt-24">
+    <div class="mx-auto max-w-screen-xl px-4 py-32 lg:py-16">
+      
+      <!-- Título y detalles del post -->
+      <div class="text-center mb-12">
+        <h1
+          class="text-2xl lg:text-4xl font-heading mb-4 text-gray-900 dark:text-white"
+        >
+          {t("nautical.title")}
+        </h1>
+        <p>
+          Descubre la excelencia en Servicios de Transporte Náutico con nuestras exclusivas opciones:
+        </p>
+      </div>
+
+  
+
+          <NauticalModalCard />
+     
+
+
+
+
+
+    </div>
+  </section>
+</Layout>

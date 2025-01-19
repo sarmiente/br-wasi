@@ -1,0 +1,57 @@
+---
+// @ts-nocheck
+import { changeLanguage } from "i18next";
+import { t } from "i18next";
+import Layout from "../../layouts/Layout.astro";
+
+changeLanguage("en");
+---
+
+<Layout title={t("nav.daily")}>
+  <section class="dark:bg-slate-800 bg-gray-50 lg:pt-24">
+    <div class="mx-auto max-w-screen-xl px-4 py-32 lg:py-16">
+      <!-- Imagen destacada -->
+
+      <div class="mb-8">
+        <img
+          src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+          class="rounded-lg w-full object-cover h-64 md:h-96"
+        />
+      </div>
+
+      <!-- Título y detalles del post -->
+      <div class="text-center mb-12">
+        <h1
+          class="text-2xl lg:text-4xl font-heading mb-4 text-gray-900 dark:text-white"
+        >
+          {t("nav.daily")}
+        </h1>
+      </div>
+
+      <!-- Contenido del post -->
+      <article class="prose prose-lg dark:prose-invert max-w-none mx-auto">
+        <p class="font-hero text-lg">
+          In a fast-paced world, daily assistance allows customers to delegate
+          tasks and focus on what really matters. From organizing schedules to
+          solving unforeseen issues, this service guarantees peace of mind and
+          convenience.
+        </p>
+
+        <h2 class="font-hero text-xl">Benefits for customers</h2>
+
+        <p class="font-hero text-lg">
+          Time-saving: Routine tasks are managed by professionals.
+        </p>
+        <p class="font-hero text-lg">
+          Exclusive access: Reservations at restaurants, events, or services
+          that would otherwise be unattainable.
+        </p>
+        <p class="font-hero text-lg">
+          Peace of mind: Knowing everything is under control provides
+          unparalleled mental peace.
+        </p>
+      </article>
+    </div>
+  </section>
+</Layout>
