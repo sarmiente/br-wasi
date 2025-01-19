@@ -1,12 +1,12 @@
 import '../../chunks/page-ssr_80fs5Lk_.mjs';
-import { c as createComponent, r as renderTemplate, m as maybeRenderHead, b as addAttribute, a as renderComponent, d as createAstro } from '../../chunks/astro/server_MjWaUeqA.mjs';
+import { d as createAstro, c as createComponent, r as renderTemplate, m as maybeRenderHead, b as addAttribute, a as renderComponent } from '../../chunks/astro/server_DqMNCrZL.mjs';
 import 'kleur/colors';
 import { changeLanguage, t } from 'i18next';
-import { a as $$Icon, $ as $$Layout } from '../../chunks/Layout_Xxx8BAc8.mjs';
-import { $ as $$PropertySwiper } from '../../chunks/PropertySwiper_D1EDwRMI.mjs';
+import { a as $$Icon, $ as $$Layout } from '../../chunks/Layout_DJ02UOGn.mjs';
+import { $ as $$PropertySwiper } from '../../chunks/PropertySwiper_CDzp8gYw.mjs';
 export { renderers } from '../../renderers.mjs';
 
-const $$Astro$1 = createAstro();
+const $$Astro$1 = createAstro("https://brsolution.com.co");
 const $$FeaturesList = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$FeaturesList;
@@ -45,7 +45,7 @@ const $$FeaturesList = createComponent(async ($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<div class="p-5 max-w-5xl mx-auto"> <!-- Título general --> <h2 class="text-2xl font-bold text-gray-800 mb-6">Características</h2> <div class="grid grid-cols-1 md:grid-cols-2 gap-6"> <!-- Características Internas --> <div> <h3 class="text-xl font-semibold text-gray-700 mb-4">Características Internas</h3> <ul class="space-y-3"> ${internal.length > 0 ? internal.map((item) => renderTemplate`<li${addAttribute(item.id, "key")} class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg shadow-md"> <div class="w-8 h-8 bg-[#60C11C] text-white rounded-full flex items-center justify-center text-sm font-semibold"> ${renderComponent($$result, "Icon", $$Icon, { "name": "check" })} </div> <span class="text-gray-800">${item.nombre || item.name}</span> </li>`) : renderTemplate`<p class="text-gray-500">No hay características internas disponibles.</p>`} </ul> </div> <!-- Características Externas --> <div> <h3 class="text-xl font-semibold text-gray-700 mb-4">Características Externas</h3> <ul class="space-y-3"> ${external.length > 0 ? external.map((item) => renderTemplate`<li${addAttribute(item.id, "key")} class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg shadow-md"> <div class="w-8 h-8 bg-[#60C11C] text-white rounded-full flex items-center justify-center text-sm font-semibold"> ${renderComponent($$result, "Icon", $$Icon, { "name": "check" })} </div> <span class="text-gray-800">${item.nombre || item.name}</span> </li>`) : renderTemplate`<p class="text-gray-500">No hay características externas disponibles.</p>`} </ul> </div> </div> </div>`;
 }, "C:/Users/User.DESKTOP-H22LPQ4/Desktop/DEVs/brsolution-api/src/components/sections/FeaturesList.astro", void 0);
 
-const $$Astro = createAstro();
+const $$Astro = createAstro("https://brsolution.com.co");
 const $$idProperty = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$idProperty;

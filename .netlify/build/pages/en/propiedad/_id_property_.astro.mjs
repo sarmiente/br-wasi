@@ -1,12 +1,12 @@
 import '../../../chunks/page-ssr_80fs5Lk_.mjs';
-import { c as createComponent, r as renderTemplate, m as maybeRenderHead, b as addAttribute, a as renderComponent, d as createAstro } from '../../../chunks/astro/server_MjWaUeqA.mjs';
+import { d as createAstro, c as createComponent, r as renderTemplate, m as maybeRenderHead, b as addAttribute, a as renderComponent } from '../../../chunks/astro/server_DqMNCrZL.mjs';
 import 'kleur/colors';
 import { changeLanguage, t } from 'i18next';
-import { a as $$Icon, $ as $$Layout } from '../../../chunks/Layout_Xxx8BAc8.mjs';
-import { $ as $$PropertySwiper } from '../../../chunks/PropertySwiper_D1EDwRMI.mjs';
+import { a as $$Icon, $ as $$Layout } from '../../../chunks/Layout_DJ02UOGn.mjs';
+import { $ as $$PropertySwiper } from '../../../chunks/PropertySwiper_CDzp8gYw.mjs';
 export { renderers } from '../../../renderers.mjs';
 
-const $$Astro$1 = createAstro();
+const $$Astro$1 = createAstro("https://brsolution.com.co");
 const $$FeaturesListEng = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$FeaturesListEng;
@@ -299,7 +299,7 @@ External Features
 </h3> <ul class="space-y-3"> ${externalFeatures.length > 0 ? externalFeatures.map((feature, index) => renderTemplate`<li${addAttribute(index, "key")} class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg shadow-md"> <div class="w-8 h-8 bg-[#60C11C] text-white rounded-full flex items-center justify-center text-sm font-semibold"> ${renderComponent($$result, "Icon", $$Icon, { "name": "check" })} </div> <span class="text-gray-800">${translateFeature(feature)}</span> </li>`) : renderTemplate`<p class="text-gray-500">No external features available.</p>`} </ul> </div> </div> </div>`;
 }, "C:/Users/User.DESKTOP-H22LPQ4/Desktop/DEVs/brsolution-api/src/components/sections/FeaturesListEng.astro", void 0);
 
-const $$Astro = createAstro();
+const $$Astro = createAstro("https://brsolution.com.co");
 const $$idProperty = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$idProperty;

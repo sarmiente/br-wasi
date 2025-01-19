@@ -1,9 +1,9 @@
 import '../../chunks/page-ssr_80fs5Lk_.mjs';
-import { c as createComponent, r as renderTemplate, a as renderComponent, m as maybeRenderHead } from '../../chunks/astro/server_MjWaUeqA.mjs';
+import { c as createComponent, r as renderTemplate, a as renderComponent, m as maybeRenderHead } from '../../chunks/astro/server_DqMNCrZL.mjs';
 import 'kleur/colors';
 import { changeLanguage } from 'i18next';
-import { $ as $$Layout } from '../../chunks/Layout_Xxx8BAc8.mjs';
-import { $ as $$Team } from '../../chunks/Team_Cgy_3jXK.mjs';
+import { $ as $$Layout } from '../../chunks/Layout_DJ02UOGn.mjs';
+import { $ as $$Team } from '../../chunks/Team_D4PEpb_a.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$MeetOurTeam = createComponent(($$result, $$props, $$slots) => {

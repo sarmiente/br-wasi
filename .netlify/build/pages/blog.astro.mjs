@@ -1,9 +1,9 @@
 import { P } from '../chunks/page-ssr_80fs5Lk_.mjs';
-import { c as createComponent, r as renderTemplate, a as renderComponent, m as maybeRenderHead, b as addAttribute } from '../chunks/astro/server_MjWaUeqA.mjs';
+import { c as createComponent, r as renderTemplate, a as renderComponent, m as maybeRenderHead, b as addAttribute } from '../chunks/astro/server_DqMNCrZL.mjs';
 import 'kleur/colors';
 import { changeLanguage, t } from 'i18next';
-import { g as getCollection } from '../chunks/_astro_content_cHlk7rp4.mjs';
-import { $ as $$Layout } from '../chunks/Layout_Xxx8BAc8.mjs';
+import { g as getCollection } from '../chunks/_astro_content_I_RDvaJ2.mjs';
+import { $ as $$Layout } from '../chunks/Layout_DJ02UOGn.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {
