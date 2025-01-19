@@ -18,13 +18,25 @@ export default defineConfig({
     remotePatterns: [{ protocol: "https" }],
   },
 
-  integrations: [tailwind(), icon(), mdx(), sitemap({
-    i18n: {
-      defaultLocale: "es", 
-      locales: {
-        en: "en", 
-        es: "es",
+  integrations: [
+    tailwind(),
+    icon(),
+    mdx(),
+    sitemap({
+      i18n: {
+        defaultLocale: "es",
+        locales: {
+          en: "en",
+          es: "es",
+        },
       },
+    }),
+    astroI18next(),
+  ],
+  
+  vite: {
+    ssr: {
+      noExternal: ["astro-i18next"], // Evita que esta dependencia sea externalizada
     },
-  }), astroI18next()]  
+  },
 });

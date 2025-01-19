@@ -2,7 +2,7 @@ import '../../chunks/page-ssr_80fs5Lk_.mjs';
 import { d as createAstro, c as createComponent, r as renderTemplate, m as maybeRenderHead, b as addAttribute, a as renderComponent } from '../../chunks/astro/server_DqMNCrZL.mjs';
 import 'kleur/colors';
 import { changeLanguage, t } from 'i18next';
-import { a as $$Icon, $ as $$Layout } from '../../chunks/Layout_DJ02UOGn.mjs';
+import { a as $$Icon, $ as $$Layout } from '../../chunks/Layout_8YhVD-py.mjs';
 import { $ as $$PropertySwiper } from '../../chunks/PropertySwiper_CDzp8gYw.mjs';
 export { renderers } from '../../renderers.mjs';
 
