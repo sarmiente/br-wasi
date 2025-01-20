@@ -2,7 +2,7 @@ import '../chunks/page-ssr_BdZ5HDMm.mjs';
 import { c as createComponent, r as renderTemplate, a as renderComponent, m as maybeRenderHead } from '../chunks/astro/server_CJE4JcK7.mjs';
 import 'kleur/colors';
 import { changeLanguage } from 'i18next';
-import { $ as $$Layout } from '../chunks/Layout_CbecvtHi.mjs';
+import { $ as $$Layout } from '../chunks/Layout_CEk94C0i.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$PlanesTuristicos = createComponent(($$result, $$props, $$slots) => {

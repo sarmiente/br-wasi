@@ -264,7 +264,7 @@ async function renderEntry(entry) {
   }
   if (entry.deferredRender) {
     try {
-      const { default: contentModules } = await import('./content-modules_B64Xp7Q0.mjs');
+      const { default: contentModules } = await import('./content-modules_CE_x3wb_.mjs');
       const renderEntryImport = contentModules.get(entry.filePath);
       return render({
         collection: "",
