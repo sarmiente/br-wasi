@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from "@astrojs/sitemap";
 import astroI18next from "astro-i18next";
 import mdx from "@astrojs/mdx";
-import vercel from "@astrojs/vercel";
+import vercel from '@astrojs/vercel/serverless';
 
 
 

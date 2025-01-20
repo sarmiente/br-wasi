@@ -2,7 +2,7 @@ import '../chunks/page-ssr_C8K4u_ud.mjs';
 import { a as createComponent, r as renderTemplate, b as renderComponent, m as maybeRenderHead } from '../chunks/astro/server_IEYgzetq.mjs';
 import 'kleur/colors';
 import { changeLanguage, t } from 'i18next';
-import { $ as $$Layout } from '../chunks/Layout_DdZHTpIe.mjs';
+import { $ as $$Layout } from '../chunks/Layout_DdCFRSQd.mjs';
 import { $ as $$Form } from '../chunks/Form_C8pr02N-.mjs';
 export { renderers } from '../renderers.mjs';
 

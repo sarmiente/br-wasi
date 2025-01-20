@@ -4,7 +4,7 @@ import 'kleur/colors';
 import { changeLanguage } from 'i18next';
 import { $ as $$PropertyList } from '../chunks/PropertyList_T1tpqLeJ.mjs';
 import { $ as $$Hero, a as $$CenteredHero, b as $$CTA } from '../chunks/CenteredHero_BmQ29TDi.mjs';
-import { $ as $$Layout } from '../chunks/Layout_DdZHTpIe.mjs';
+import { $ as $$Layout } from '../chunks/Layout_DdCFRSQd.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {
