@@ -20,6 +20,14 @@
 			"dest": "_render"
 		},
 		{
+			"src": "^\\/404\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/500\\/?$",
+			"dest": "_render"
+		},
+		{
 			"src": "^\\/alquiler\\/?$",
 			"dest": "_render"
 		},
@@ -41,6 +49,14 @@
 		},
 		{
 			"src": "^\\/contacto\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/404\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/500\\/?$",
 			"dest": "_render"
 		},
 		{
@@ -154,6 +170,11 @@
 		{
 			"src": "^\\/$",
 			"dest": "_render"
+		},
+		{
+			"src": "/.*",
+			"dest": "_render",
+			"status": 404
 		}
 	]
 }

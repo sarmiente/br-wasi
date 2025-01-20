@@ -1,12 +1,12 @@
-import '../../../chunks/page-ssr_BdZ5HDMm.mjs';
-import { c as createComponent, r as renderTemplate, m as maybeRenderHead, d as addAttribute, a as renderComponent, b as createAstro } from '../../../chunks/astro/server_CJE4JcK7.mjs';
+import '../../../chunks/page-ssr_C8K4u_ud.mjs';
+import { c as createAstro, a as createComponent, r as renderTemplate, m as maybeRenderHead, d as addAttribute, b as renderComponent } from '../../../chunks/astro/server_IEYgzetq.mjs';
 import 'kleur/colors';
 import { changeLanguage, t } from 'i18next';
-import { a as $$Icon, $ as $$Layout } from '../../../chunks/Layout_CEk94C0i.mjs';
-import { $ as $$PropertySwiper } from '../../../chunks/PropertySwiper_-8_MCSFu.mjs';
+import { a as $$Icon, $ as $$Layout } from '../../../chunks/Layout_DdZHTpIe.mjs';
+import { $ as $$PropertySwiper } from '../../../chunks/PropertySwiper_51aYEfRo.mjs';
 export { renderers } from '../../../renderers.mjs';
 
-const $$Astro$1 = createAstro();
+const $$Astro$1 = createAstro("https://br-wasi.vercel.app");
 const $$FeaturesListEng = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$FeaturesListEng;
@@ -299,7 +299,7 @@ External Features
 </h3> <ul class="space-y-3"> ${externalFeatures.length > 0 ? externalFeatures.map((feature, index) => renderTemplate`<li${addAttribute(index, "key")} class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg shadow-md"> <div class="w-8 h-8 bg-[#60C11C] text-white rounded-full flex items-center justify-center text-sm font-semibold"> ${renderComponent($$result, "Icon", $$Icon, { "name": "check" })} </div> <span class="text-gray-800">${translateFeature(feature)}</span> </li>`) : renderTemplate`<p class="text-gray-500">No external features available.</p>`} </ul> </div> </div> </div>`;
 }, "C:/Users/User.DESKTOP-H22LPQ4/Desktop/DEVs/brsolution-api/src/components/sections/FeaturesListEng.astro", void 0);
 
-const $$Astro = createAstro();
+const $$Astro = createAstro("https://br-wasi.vercel.app");
 const $$idProperty = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$idProperty;

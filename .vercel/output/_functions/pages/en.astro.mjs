@@ -1,10 +1,10 @@
-import '../chunks/page-ssr_BdZ5HDMm.mjs';
-import { c as createComponent, r as renderTemplate, a as renderComponent } from '../chunks/astro/server_CJE4JcK7.mjs';
+import '../chunks/page-ssr_C8K4u_ud.mjs';
+import { a as createComponent, r as renderTemplate, b as renderComponent } from '../chunks/astro/server_IEYgzetq.mjs';
 import 'kleur/colors';
 import { changeLanguage } from 'i18next';
-import { $ as $$PropertyList } from '../chunks/PropertyList_BlBQ87Bi.mjs';
-import { $ as $$Hero, a as $$CenteredHero, b as $$CTA } from '../chunks/CenteredHero_CQsrrdpW.mjs';
-import { $ as $$Layout } from '../chunks/Layout_CEk94C0i.mjs';
+import { $ as $$PropertyList } from '../chunks/PropertyList_T1tpqLeJ.mjs';
+import { $ as $$Hero, a as $$CenteredHero, b as $$CTA } from '../chunks/CenteredHero_BmQ29TDi.mjs';
+import { $ as $$Layout } from '../chunks/Layout_DdZHTpIe.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {

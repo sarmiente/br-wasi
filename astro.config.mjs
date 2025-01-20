@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from "@astrojs/sitemap";
 import astroI18next from "astro-i18next";
 import mdx from "@astrojs/mdx";
-import netlify from "@astrojs/netlify";
+import vercel from "@astrojs/vercel";
 
 
 
@@ -12,7 +12,7 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   site: 'https://br-wasi.vercel.app',
   output: 'server',
-  adapter: netlify(),
+  adapter: vercel(),
   image: {
     remotePatterns: [{ protocol: "https" }],
   },
@@ -32,4 +32,5 @@ export default defineConfig({
     }),
     astroI18next(),
   ],
+  
 });

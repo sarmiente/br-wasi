@@ -1,5 +1,5 @@
-import '../../chunks/page-ssr_BdZ5HDMm.mjs';
-import { c as createComponent, r as renderTemplate, m as maybeRenderHead } from '../../chunks/astro/server_CJE4JcK7.mjs';
+import '../../chunks/page-ssr_C8K4u_ud.mjs';
+import { a as createComponent, r as renderTemplate, m as maybeRenderHead } from '../../chunks/astro/server_IEYgzetq.mjs';
 import 'kleur/colors';
 import 'clsx';
 import { changeLanguage } from 'i18next';
