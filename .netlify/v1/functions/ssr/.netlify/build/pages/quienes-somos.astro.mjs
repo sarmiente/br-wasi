@@ -1,0 +1,39 @@
+import '../chunks/page-ssr_C8K4u_ud.mjs';
+import { c as createComponent, r as renderTemplate, a as renderComponent, m as maybeRenderHead } from '../chunks/astro/server_DqMNCrZL.mjs';
+import 'kleur/colors';
+import { changeLanguage } from 'i18next';
+import { $ as $$Layout } from '../chunks/Layout_BHMJpqHP.mjs';
+export { renderers } from '../renderers.mjs';
+
+const $$QuienesSomos = createComponent(($$result, $$props, $$slots) => {
+  changeLanguage("es");
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Qui\xE9nes somos" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<section class="relative pt-24 lg:pt-32 pb-20"> <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8"> <!-- Sección "Quiénes somos" --> <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center motion-translate-y-in-[-30%] motion-ease-spring-smooth "> <div> <div class="max-w-lg md:max-w-none text-center md:text-left"> <span class="text-sm font-pattern uppercase block text-gray-600">Quiénes somos</span> <h2 class="text-2xl font-heading uppercase text-gray-900 sm:text-4xl lg:text-5xl">
+Construyendo un legado visionario en el futuro de la excelencia en propiedad.
+</h2> <p class="mt-4 text-gray-700 font-hero text-sm sm:text-base lg:text-md">
+En BR Solutions, creemos que cada viaje es una experiencia única y que el lugar donde te hospedas puede convertir ese viaje en algo verdaderamente inolvidable. Como proveedores de alojamientos turísticos, ventas de propiedades y renta de botes, nos enorgullece ofrecer hogares lejos de casa y experiencias excepcionales.
+</p> <div class="py-5"> <a href="#" class="bg-[#60C11C] font-hero uppercase px-6 py-3 text-sm rounded-md text-white hover:bg-[#4ea015] transition">
+Saber más
+</a> </div> </div> </div> <div> <img src="https://brsolution.com.co/wp-content/uploads/2024/04/Team_Photo.jpg" class="rounded-2xl w-full object-cover" alt="Team Photo"> </div> </div> </div> </section>  <section class="relative pb-20"> <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8"> <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center motion-preset-slide-right "> <!-- Imagen lado izquierdo --> <div class="order-2 md:order-1 place-items-center"> <img src="https://images.unsplash.com/photo-1708196889869-1405f43976ea?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-2xl w-[70%] object-cover" alt="Mission Image"> </div> <!-- Texto lado derecho --> <div class="order-1 md:order-2"> <div class="max-w-lg text-center md:text-left"> <span class="text-sm font-pattern uppercase block text-gray-600">Nuestra Misión</span> <h2 class="text-2xl font-heading uppercase text-gray-900 sm:text-4xl lg:text-4xl">
+Excelencia en calidad, seguridad y servicio.
+</h2> <p class="mt-4 text-gray-700 font-hero text-sm sm:text-base lg:text-md">
+Nos comprometemos a ofrecer propiedades y botes de la más alta calidad, asegurando la seguridad y el bienestar de nuestros clientes en todo momento. La excelencia en el servicio es nuestro estándar.
+</p> </div> </div> </div> </div> </section>  <section class="relative pb-20"> <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8"> <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center motion-preset-slide-left "> <!-- Texto lado izquierdo --> <div> <div class="max-w-lg text-center md:text-left"> <span class="text-sm font-pattern uppercase block text-gray-600">Nuestra Vision</span> <h2 class="text-2xl font-heading uppercase text-gray-900 sm:text-4xl lg:text-4xl">
+Transformando estancias en aventuras eternas.
+</h2> <p class="mt-4 text-gray-700 font-hero text-sm sm:text-base lg:text-md">
+Convertirnos en la empresa líder en la prestación de servicios inmobiliarios enfocados en Alquiler de alojamientos turísticos, venta de propiedades locales y renta de embarcaciones marítimas, proporcionando acceso a las propiedades y botes más exclusivos en destinos de ensueño, donde cada estancia se transforma en una aventura única e inolvidable
+</p> </div> </div> <!-- Imagen lado derecho --> <div class="place-items-center"> <img src="https://images.unsplash.com/photo-1708196889869-1405f43976ea?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-2xl w-[70%] object-cover" alt="Vision Image"> </div> </div> </div> </section> ` })}`;
+}, "C:/Users/User.DESKTOP-H22LPQ4/Desktop/DEVs/brsolution-api/src/pages/quienes-somos.astro", void 0);
+
+const $$file = "C:/Users/User.DESKTOP-H22LPQ4/Desktop/DEVs/brsolution-api/src/pages/quienes-somos.astro";
+const $$url = "/quienes-somos";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$QuienesSomos,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

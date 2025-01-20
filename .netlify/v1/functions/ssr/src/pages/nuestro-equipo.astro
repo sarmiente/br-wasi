@@ -1,0 +1,44 @@
+---
+import { changeLanguage } from "i18next";
+import Layout from "../layouts/Layout.astro";
+import Team from "../components/sections/Team.astro";
+
+changeLanguage("es");
+---
+
+<Layout title="Nuestro Equipo" >
+     <Team />
+     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+          <div class="mx-auto max-w-3xl text-center">
+            <span class="text-sm font-pattern uppercase block text-gray-600">¿Por qué elegirnos?</span>
+            <h2 class="text-2xl mt-2 font-heading uppercase text-gray-900 sm:text-4xl lg:text-4xl">
+              Variedad, calidad y servicio personalizado incomparables
+            </h2>
+          </div>
+        
+          <div class="grid grid-cols-1 gap-12 mt-16 lg:grid-cols-3 lg:gap-8">
+            <div class="text-center">
+              <div class="h-40 w-40 mx-auto rounded-full bg-hero-pattern-03 bg-cover flex items-center justify-center shadow-lg">
+                <!-- Icon/Content -->
+              </div>
+              <h3 class="mt-4 text-xl font-heading uppercase text-gray-900 sm:text-2xl">Variedad de Propiedades</h3>
+              <p class="text-sm text-gray-700 mt-2">Ofrecemos diversas opciones adaptadas a tus necesidades.</p>
+            </div>
+        
+            <div class="text-center">
+              <div class="h-40 w-40 mx-auto rounded-full bg-pattern-02 bg-cover flex items-center justify-center shadow-lg">
+                <!-- Icon/Content -->
+              </div>
+              <h3 class="mt-4 text-xl font-heading uppercase text-gray-900 sm:text-2xl">Estándares de Calidad</h3>
+              <p class="text-sm text-gray-700 mt-2">Garantizamos la excelencia en cada servicio.</p>
+            </div>
+        
+            <div class="text-center">
+              <div class="h-40 w-40 mx-auto rounded-full bg-pattern-03 bg-cover flex items-center justify-center shadow-lg">
+                <!-- Icon/Content -->
+              </div>
+              <h3 class="mt-4 text-xl font-heading uppercase text-gray-900 sm:text-2xl">Servicio Personalizado</h3>
+              <p class="text-sm text-gray-700 mt-2">Tu satisfacción es nuestra prioridad.</p>
+            </div>
+          </div>
+</Layout>
