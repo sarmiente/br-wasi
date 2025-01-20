@@ -1,0 +1,159 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^\\/_server-islands\\/([^/]+?)\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/_image\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/alquiler\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/asistencia-diaria\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/blog\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/comprar\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/conserjeria-de-lujo\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/contacto\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/blog\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/buy\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/contact\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/daily-assistance\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/experiences\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/land-transport\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/luxury-concierge\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/meet-our-team\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/nautical-transport\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/privacy-policy\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/property-management\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/propiedad\\/([^/]+?)\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/rent\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/terms-and-conditions\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/tourist-plans\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/who-we-are\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/en\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/experiencias\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/gestion-de-propiedades\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/nuestro-equipo\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/planes-turisticos\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/politica-de-privacidad\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/propiedad\\/([^/]+?)\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/quienes-somos\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/terminos-y-condiciones\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/transporte-nautico\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/transporte-terrestre\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/$",
+			"dest": "_render"
+		}
+	]
+}

@@ -6,11 +6,11 @@ export default {
 	theme: {
 		extend: {
 			backgroundImage: {
-				'hero-pattern': "url('/src/assets/img/br_front_1.jpg')",
-				'hero-pattern-02': "url('/src/assets/img/br_front_2.jpg')",
-				'hero-pattern-03': "url('/src/assets/img/br_front_3.jpg')",
-				'pattern-03': "url('/src/assets/img/pattern-03.jpg')",
-				'pattern-02': "url('/src/assets/img/pattern-02.jpg')",
+				'hero-pattern': "url('/br_front_1.jpg')",
+				'hero-pattern-02': "url('/br_front_2.jpg')",
+				'hero-pattern-03': "url('/br_front_3.jpg')",
+				'pattern-03': "url('/pattern-03.jpg')",
+				'pattern-02': "url('/pattern-02.jpg')",
 
 				
 			  },
