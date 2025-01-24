@@ -5,14 +5,14 @@ import sitemap from "@astrojs/sitemap";
 import astroI18next from "astro-i18next";
 import mdx from "@astrojs/mdx";
 import node from "@astrojs/node"; 
-import vercel from "@astrojs/vercel"; 
+import cloudflare from "@astrojs/cloudflare"; 
 
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://br-wasi.vercel.app',
   output: 'server',
-  adapter: vercel(),
+  adapter: cloudflare(),
   adapter: node({                        
     mode: "standalone",
   }),
